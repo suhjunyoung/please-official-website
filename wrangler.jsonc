@@ -1,0 +1,11 @@
+// Cloudflare Workers static-assets config.
+// Only ./site is published.
+{
+  "name": "please-official-website",
+  "compatibility_date": "2026-09-29",
+  "assets": {
+    "directory": "./site",
+    "not_found_handling": "404-page"
+  }
+}
+
