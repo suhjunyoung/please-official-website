@@ -2,6 +2,13 @@
 
 Official website for **Please!**, a family productivity app that turns everyday requests into visible care.
 
+The site includes:
+
+- A responsive product landing page with direct App Store and Google Play download links
+- A six-step app guide based on the onboarding flow in the mobile app
+- The migrated Please! customer-support FAQ
+- Korean and English versions of the Terms of Service and Privacy Policy
+
 ## Deployment
 
 The published site is the `site/` directory. It is configured for Cloudflare Workers static assets.
@@ -31,10 +38,16 @@ Open `http://localhost:8000`.
 ```text
 site/             # Published static files
   index.html       # Landing page
+  support/         # Customer support and FAQ
+  terms/           # Terms of Service
+  privacy/         # Privacy Policy
+  content/         # Korean and English legal source documents
+  assets/          # Brand assets and app screenshots
+  script.js        # Navigation, reveal, and app-guide interactions
+  legal.js         # Legal-document language switcher and renderer
   styles.css       # Shared styles
   404.html         # Not-found page
   robots.txt
   sitemap.xml
 wrangler.jsonc     # Cloudflare Workers static-assets config
 ```
-
