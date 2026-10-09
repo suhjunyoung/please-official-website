@@ -5,15 +5,23 @@ const nav = document.querySelector('[data-nav]');
 function closeNav() {
   if (!navToggle || !nav) return;
   navToggle.setAttribute('aria-expanded', 'false');
+  navToggle.querySelector('.sr-only').textContent = '메뉴 열기';
   nav.classList.remove('open');
+  document.documentElement.classList.remove('nav-open');
   document.body.classList.remove('nav-open');
 }
 
 navToggle?.addEventListener('click', () => {
   const open = navToggle.getAttribute('aria-expanded') !== 'true';
   navToggle.setAttribute('aria-expanded', String(open));
+  navToggle.querySelector('.sr-only').textContent = open ? '메뉴 닫기' : '메뉴 열기';
   nav?.classList.toggle('open', open);
+  document.documentElement.classList.toggle('nav-open', open);
   document.body.classList.toggle('nav-open', open);
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') closeNav();
 });
 
 nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeNav));

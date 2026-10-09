@@ -134,7 +134,7 @@ async function loadDocument(language) {
   if (!documentType || !legalTarget) return;
   legalTarget.innerHTML = '<p class="legal-loading">문서를 불러오는 중입니다…</p>';
   try {
-    const response = await fetch(`../content/${documentType}.${language}.md`);
+    const response = await fetch(`/content/${documentType}.${language}.md`);
     if (!response.ok) throw new Error('Document not found');
     const markdown = cleanMarkdown(await response.text(), language);
     legalTarget.innerHTML = renderMarkdown(markdown);
