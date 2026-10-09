@@ -1,6 +1,7 @@
 const documentType = document.body.dataset.document;
 const legalTarget = document.querySelector('[data-legal-content]');
 const languageButtons = [...document.querySelectorAll('[data-language]')];
+const legalMeta = document.querySelector('[data-legal-meta]');
 
 const escapeHtml = (value) => value
   .replaceAll('&', '&amp;')
@@ -144,6 +145,11 @@ async function loadDocument(language) {
       button.classList.toggle('active', active);
       button.setAttribute('aria-pressed', String(active));
     });
+    if (legalMeta) {
+      legalMeta.textContent = language === 'en'
+        ? 'Effective: Upon app update release'
+        : '시행일자: 앱 업데이트 배포 시';
+    }
     window.history.replaceState(null, '', language === 'en' ? '?lang=en' : window.location.pathname);
   } catch {
     legalTarget.innerHTML = '<p>문서를 불러오지 못했습니다. <a href="mailto:yellodevs@gmail.com">yellodevs@gmail.com</a>으로 문의해 주세요.</p>';

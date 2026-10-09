@@ -1,7 +1,6 @@
 # Terms of Service
 
 > This English version is provided for convenience. The Korean version governs if the two versions differ.
-> Public URL: https://yellodevs.notion.site/690015dbafa3835ca344816fc728d54b
 
 ## Article 1 (Purpose)
 
@@ -25,7 +24,7 @@ These Terms set out the conditions and procedures for using the Please! mobile a
 1. These Terms take effect when a user agrees to them during sign-up or onboarding.
 2. The Operator may amend these Terms to the extent permitted by applicable law.
 3. When the Terms change, the Operator will state the effective date and reason and provide notice in the app or Service at least seven days in advance, or 30 days in advance for material or unfavorable changes.
-4. A user is deemed to accept the amended Terms if the user does not expressly reject them by the effective date or continues using the Service. A user who does not agree may terminate the agreement by deleting their account at any time.
+4. Users may choose not to agree to the amended Terms. The Operator will provide separate guidance on necessary consent procedures in accordance with the amendment details and applicable laws. If a user does not agree, the scope of Service use and methods of contract termination will be notified prior to implementation, ensuring necessary procedures to exercise rights under applicable laws. Users may terminate the service agreement at any time by deleting their account.
 
 ---
 
@@ -35,7 +34,7 @@ These Terms set out the conditions and procedures for using the Please! mobile a
    - Family creation and joining through invite links
    - Creating, editing, completing, undoing, and deleting missions, plus heart reactions
    - A shared family candy jar and activity-based levels
-   - Real-time mission notifications and scheduled morning and evening reminders
+   - Mission-created/completed/deleted notifications and scheduled morning and evening reminders, with planned family-join and heart notifications
    - Read-only iOS and Android Home Screen widgets
 2. The Service is provided free of charge in principle.
 
@@ -43,7 +42,7 @@ These Terms set out the conditions and procedures for using the Please! mobile a
 
 ## Article 5 (Accounts and Family Groups)
 
-1. Users access the Service through Apple or Google social sign-in. The Service does not create or collect a separate username and password.
+1. Users access the Service through Apple or Google social sign-in. Ordinary registration does not require a separate username and password. The store-review email sign-in sends the email and password required for authentication to the authentication service.
 2. **One family per user:** An account can belong to only one family at a time. A user must leave the current family before joining another.
 3. **Family size:** A family can have up to eight members.
 4. **Invite links:**
@@ -54,7 +53,7 @@ These Terms set out the conditions and procedures for using the Please! mobile a
 
 ## Article 6 (User Responsibilities)
 
-1. **Take care with family-shared content:** Mission text and reactions are shared in real time with every family member and may be delivered by push notification. Users should avoid content that could invade privacy or cause harm or misunderstanding.
+1. **Take care with family-shared content:** Mission text and heart reactions are shared with members of the same family. Mission-created/completed/deleted notifications go to family members other than the person who performed the action. Planned family-join notifications go to existing members other than the person joining; planned heart notifications go only to the mission's completer who still belongs to the family. No heart notification is sent for a self-reaction or a mission without a completer. Mission edits and completion undo actions do not send push notifications. Actual receipt depends on device registration, permission, and delivery status. Users should avoid content that could invade privacy or cause harm or misunderstanding.
 2. Users must not:
    - Insult, defame, threaten, or harass another person
    - Post unlawful content or content contrary to public order and accepted standards
@@ -73,13 +72,13 @@ These Terms set out the conditions and procedures for using the Please! mobile a
 
 ## Article 8 (Account Termination and Data Deletion)
 
-1. A user may leave a family or delete their account at any time from the profile settings in the app.
+1. A user may leave their current family through Leave family in the app's profile settings. The Service account and sign-up consent records remain, and the user may create or join another family. A user may terminate the Service agreement through Delete account.
 2. **Leaving a family:**
-   - The departing user’s profile, including nickname, character, color, and device token, is deleted immediately.
-   - Existing missions remain for family continuity, but requester and assignee references to the departing user are anonymized.
-   - When the last member leaves, the family and all remaining related data are permanently deleted immediately.
-3. **Automatic deletion:** Completed missions and heart reactions are permanently deleted from the server 90 days after completion.
-4. See the Privacy Policy for more information about retention and deletion.
+   - Successful server processing deletes the departing user’s profile, including nickname, character and color, and device registrations.
+   - Shared missions remain for family continuity, with the departing requester, assignee and completer references removed. Text previously written in mission titles remains visible to the family.
+   - When the last member successfully leaves on the server, the family and related Service database data are deleted. Temporary notification records, external diagnostics, operational logs and backups follow their respective Privacy Policy rules.
+3. **Mission retention and cleanup:** Incomplete missions remain until an authorized member deletes them or the family is deleted; they are not automatically deleted because of age. Once completed, retention and cleanup are measured from the completion time. Levels and candy use the latest 14 calendar days in the family's time zone. Completed missions and hearts are retained to investigate calculation anomalies and related problems. Missions more than 90 days past completion and associated hearts are deleted by the next daily cleanup. Other deletion rules, such as family deletion, apply if triggered earlier.
+4. Successful account deletion removes the authentication account, sign-up consent, profile and device registrations. Shared missions, temporary notification records and external retention follow the [Privacy Policy](/privacy/?lang=en). However, push notification messages already delivered to devices cannot be recalled.
 
 ---
 
@@ -111,5 +110,20 @@ These Terms set out the conditions and procedures for using the Please! mobile a
 
 - **Operator:** yellodevs (Junyoung Suh and Heesung Kim)
 - **Contact:** `yellodevs@gmail.com`
-- **Published:** August 31, 2026
-- **Effective:** August 31, 2026
+- **Published:** Upon app update release
+- **Effective:** Upon app update release
+
+---
+
+## Key Changes from the Previous Version
+
+The table below summarizes key changes from the Terms effective August 31, 2026. Please refer to the full Terms above for the complete amended provisions.
+
+| Provision | Previous Description | Amended Description | Reason for Change |
+|---|---|---|---|
+| Article 3.4 — Acceptance of amended Terms | Not objecting by the effective date or continuing to use the Service was deemed acceptance | Users may decline. Necessary consent procedures, the scope of use if they decline, and termination methods will be explained separately | To clarify users’ choices and procedures for exercising their rights |
+| Article 4 — Notifications | Described real-time mission changes and scheduled morning/evening reminders | Distinguishes creation, completion, deletion and scheduled notifications; describes planned family-join and heart notifications | To specify notification triggers and scope |
+| Article 5.1 — Sign-in | Stated that no separate ID or password was collected or created | General registration requires no separate credentials; store-review email sign-in sends the required email and password to the authentication service | To distinguish general registration from reviewer authentication |
+| Article 6.1 — Family sharing and push delivery | Described mission text and reactions as shared with and pushed to all members | Distinguishes sharing from push recipients. The actor is excluded from mission notifications; specifies planned family-join/heart recipients and exclusions such as editing and undoing completion | To accurately explain recipients and device delivery conditions |
+| Article 8.1, 8.2 and 8.4 — Leaving a family and account deletion | Described either action as contract termination, shared missions as anonymized and remaining data as immediately deleted | Leaving preserves the account and sign-up consent; account deletion terminates the contract. Explains removal of person references, preserved mission text, deletion after successful server processing, and exceptions for temporary/external records and delivered notifications | To clarify each action’s effects and actual deletion scope |
+| Article 8.3 — Mission retention | Described permanent deletion after 90 days when activity-calculation purposes ended | Distinguishes incomplete-mission retention, 14-day activity calculation, 90-day investigation retention and deletion at the next daily cleanup after more than 90 days | To distinguish calculation periods from retention and deletion timing |
