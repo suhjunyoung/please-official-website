@@ -240,7 +240,7 @@ img { display: block; max-width: 100%; }
 .prose { font-size: 1rem; line-height: 1.85; }
 .prose h1 { display: none; }
 .prose h2 { border-top: 1px solid var(--line); font-size: 1.55rem; letter-spacing: -0.035em; margin: 54px 0 22px; padding-top: 48px; }
-.prose h2:first-child, .prose blockquote + h2 { border-top: 0; margin-top: 22px; padding-top: 0; }
+.prose h2:first-child, .prose blockquote + h2, .prose hr + h2 { border-top: 0; margin-top: 24px; padding-top: 0; }
 .prose h3 { font-size: 1.13rem; margin: 32px 0 12px; }
 .prose p { color: #514740; margin: 0 0 17px; }
 .prose strong { color: var(--ink); }
