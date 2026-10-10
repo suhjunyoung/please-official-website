@@ -13,33 +13,35 @@ The Service does not require legal names, phone numbers, dates of birth, photos,
 | Account & Authentication | Social sign-in identifier, internal account identifier, authentication metadata provided by sign-in providers (email, name, profile image URL) | Initial sign-in and authentication refresh |
 | Profile | Display name (nickname), character number, theme color, morning/evening reminder times, app language | Direct user entry during onboarding and settings changes |
 | Family | Family identifier and name, time zone, invite link token and expiration time | Family creation or invite link generation |
-| Mission | Mission identifier and text, creator and creation time, assignee tag, due date, status, completer and completion time | Mission creation, editing, and completion |
-| Reaction | User sending a heart, target mission, and reaction time | When tapping a heart on a completed mission |
+| Request | Request identifier and text, creator and creation time, assignee tag, due date, status, completer and completion time | Request creation, editing, and completion |
+| Reaction | User sending a heart, target request, and reaction time | When tapping a heart on a completed request |
 | Push Registration | Expo push token, member/device registration identifiers and registration time | When the app verifies notification permissions and registers or updates a token |
 | Error & Diagnostics | Device model, OS, language, memory, app/update version, error messages, stack trace locations, screen transitions, touches, network diagnostics, internal account or SDK installation ID, approximate region (country/city) | Automatically collected during app runtime and diagnostics |
 | App Updates | Device operating system and update request information, including randomized identifiers used to determine whether an update was downloaded | When the app checks for or downloads updates |
 | Consent Record | Account identifier, consent text version, and consent timestamp | Upon completing sign-up consent checklist and signing in |
 | Temporary Notification Records | Delivery identifiers, status, and processing timestamps for scheduled, deletion, or event notifications | Created on the server during delivery and duplicate prevention (see Section 4 for retention and deletion timing) |
 
-* **Social Sign-in Details**: iOS native Apple sign-in does not request additional name or email scopes. Google sign-in and Android Apple web sign-in may provide account information to Supabase Auth. The app does not separately store emails or legal names in the family/profile database, using only the nickname and character chosen during onboarding. The store-review email sign-in sends the email and password required for authentication to Supabase Auth. Social sign-in providers (Apple, Google) are independent services directly used by users, not data processors contracted by the Service.
+* **Social Sign-in Details**: Google sign-in requests email and profile information as part of its default authentication scopes on both iOS and Android. Provider-supplied account information, including email, is transmitted to and stored in Supabase Auth as part of the Service’s authentication process. Android Apple web sign-in may also provide email and other account information. iOS native Apple sign-in does not request additional name or email scopes. The app does not separately store emails or legal names in the family/profile database, using only the nickname and character chosen during onboarding. The store-review email sign-in sends the email and password required for authentication to Supabase Auth. Social sign-in providers (Apple, Google) are independent services directly used by users, not data processors contracted by the Service.
+* **Identifying Your Sign-in Account**: The “Linked sign-in methods” section in account settings displays your sign-in method and provider-supplied email so you can identify your own account. If no email is available or Apple provides a Hide My Email address, only the sign-in method’s name is displayed. This account information is shown to you; your email is not shared with other family members.
 * **Diagnostics & Analytics**: Sentry is used to ensure service stability and analyze app crashes. Internal account identifiers help connect repeated errors and support reports affecting the same user. Approximate location, such as country, helps identify regional connection and performance problems. We do not use this information for advertising or marketing tracking. Current diagnostics may also include city information.
-* **On-device Storage**: Login sessions, push tokens, mission snapshots for Home Screen widgets, and local notice acknowledgment records are stored locally on the device. Notice acknowledgments remain local and are separate from server-side sign-up consent records.
+* **On-device Storage**: Login sessions, push tokens, request snapshots for Home Screen widgets, and local notice acknowledgment records are stored locally on the device. Notice acknowledgments remain local and are separate from server-side sign-up consent records.
 
 ## 2. Purposes of Using Personal Information
 
 Collected information is used strictly for the following purposes and is **never used for advertising, marketing, profiling, or sale to third parties.**
 
-1. **Family Group Management**: Family creation, invite link verification, and member identification
-2. **Missions & Rewards**: Mission management, shared family candy jar and recent 14-day activity level calculations
-3. **Notification Delivery & Processing**: Mission, family-joining and heart-reaction notifications, scheduled morning/evening reminders, and duplicate prevention
-4. **Widget Service**: Displaying and updating mission snapshots on iOS / Android Home Screen widgets
-5. **Diagnostics & Quality Improvement**: Analyzing crash causes, diagnosing runtime errors, and enhancing stability and performance
-6. **App Updates**: Checking for and downloading compatible updates and checking update status
-7. **Consent Verification**: Maintaining proof of agreed policy version and consent timestamps
+1. **Authentication and Account Identification**: Authenticating sign-in, managing accounts, and displaying your sign-in method and email so you can identify your own account
+2. **Family Group Management**: Family creation, invite link verification, and member identification
+3. **Requests & Rewards**: Request management, shared family candy jar and recent 14-day activity level calculations
+4. **Notification Delivery & Processing**: Request, family-joining and heart-reaction notifications, scheduled morning/evening reminders, and duplicate prevention
+5. **Widget Service**: Displaying and updating request snapshots on iOS / Android Home Screen widgets
+6. **Diagnostics & Quality Improvement**: Analyzing crash causes, diagnosing runtime errors, and enhancing stability and performance
+7. **App Updates**: Checking for and downloading compatible updates and checking update status
+8. **Consent Verification**: Maintaining proof of agreed policy version and consent timestamps
 
 ## 3. Delegation of Processing and International Transfers
 
-Members of the same family can view nicknames, characters, colors, shared missions and creation, completion and heart activity. Anyone with a valid invitation link can access the family name, member count and characters/colors in use before joining. Please share invitation links only with people you wish to invite.
+Members of the same family can view nicknames, characters, colors, shared requests and creation, completion and heart activity. Anyone with a valid invitation link can access the family name, member count and characters/colors in use before joining. Please share invitation links only with people you wish to invite.
 
 ### A. Delegation of Processing
 
@@ -47,12 +49,12 @@ We entrust storage, authentication, notification and diagnostic operations to th
 
 | Entrusted Entity | Delegated Processing Scope | Information Transferred |
 |---|---|---|
-| Supabase Pte. Ltd. | Cloud database storage and authentication | Account/authentication, profile, family, mission, reaction, push registration, consent and notification-processing records |
-| 650 Industries, Inc. (Expo) | Push notification relay and app update download verification | Push token, notification title/body (nicknames and mission text), widget data, update request metadata |
+| Supabase Pte. Ltd. | Cloud database storage and authentication | Account/authentication, profile, family, request, reaction, push registration, consent and notification-processing records |
+| 650 Industries, Inc. (Expo) | Push notification relay and app update download verification | Push token, notification title/body (nicknames and request text), widget data, update request metadata |
 | Apple Inc. (APNs) · Google LLC (FCM) | Final delivery of push notifications to devices | Push token, notification title/body, navigation/widget update data |
 | Functional Software, Inc. (Sentry) | Crash detection, error analysis, and performance monitoring | Device/OS/app information, diagnostic logs, internal account or SDK installation ID, approximate region |
 
-* When Sentry errors occur, summary alerts (error title, location, Sentry link) may be forwarded to a Discord webhook for developer response. The app’s diagnostic transmission paths apply filters to fields identified as passwords or authentication tokens and patterns such as email addresses. These filters cannot identify all user-written text in error messages; error summaries may therefore include user-entered content such as mission text.
+* When Sentry errors occur, summary alerts (error title, location, Sentry link) may be forwarded to a Discord webhook for developer response. The app’s diagnostic transmission paths apply filters to fields identified as passwords or authentication tokens and patterns such as email addresses. These filters cannot identify all user-written text in error messages; error summaries may therefore include user-entered content such as request text.
 
 ### B. International Data Transfers
 
@@ -84,20 +86,20 @@ Removing a device registration from the app's server is separate from deleting i
 
 | Target Data | Retention & Deletion Criteria |
 |---|---|
-| Incomplete missions | Retained until deleted by an authorized member or the family group is deleted (completed missions follow the rule below) |
-| Completed missions & hearts | Retained for 14-day activity calculations and calculation anomaly verification; **records older than 90 days from completion are deleted from the service database by the next daily cleanup** |
-| Departing member data | Profile and device registrations are deleted once leaving the family succeeds on the server. The account and consent records remain. See below for shared missions |
+| Incomplete requests | Retained until deleted by an authorized member or the family group is deleted (completed requests follow the rule below) |
+| Completed requests & hearts | Retained for 14-day activity calculations and calculation anomaly verification; **records older than 90 days from completion are deleted from the service database by the next daily cleanup** |
+| Departing member data | Profile and device registrations are deleted once leaving the family succeeds on the server. The account and consent records remain. See below for shared requests |
 | Entire family data | Family and related service database records are deleted once the last member successfully leaves. Temporary notification records and external copies follow the criteria below |
-| Account & consent records | Retained while the account exists. Successful server-side account deletion removes the authentication account, profile, device registrations and consent records. Shared missions and temporary/external records follow the criteria below |
+| Account & consent records | Retained while the account exists. Successful server-side account deletion removes the authentication account, profile, device registrations and consent records. Shared requests and temporary/external records follow the criteria below |
 | Temporary notification logs | Deleted at the next automatic cleanup after they are more than 24 hours old. Cleanup runs every minute, hour or day depending on the record type, so deletion is not immediate at the 24-hour mark |
 | Operational error summaries | Discord summaries have no scheduled deletion or automatic expiry and may remain until the message or channel is deleted. Deleting a Please! account does not remove them. Personal-data deletion requests can be sent to the contact in Section 5. Discord database backups are retained for 30–45 days; this is not the message expiry period |
 | Error diagnostics | Sentry error events are retained for **30 days**. Event backups are deleted **within a maximum of 90 days after each backup is created**, depending on the data type. Discord summaries follow their separate row in this table |
 
-* Activity levels and candy counts are calculated based on the latest 14 calendar days in the family's time zone. The 90-day retention of completed missions is a separate retention window for statistical verification and operational stability.
+* Activity levels and candy counts are calculated based on the latest 14 calendar days in the family's time zone. The 90-day retention of completed requests is a separate retention window for statistical verification and operational stability.
 
-When other members remain in the family, shared missions remain but references to the departing member as creator, assignee or completer are removed. Names or other text written directly in mission contents are not automatically erased.
+When other members remain in the family, shared requests remain but references to the departing member as creator, assignee or completer are removed. Names or other text written directly in request contents are not automatically erased.
 
-Temporary identifiers used to process notifications for deleted missions may remain until the cleanup described above, even after account or family deletion. These records do not contain nicknames, mission text or push tokens.
+Temporary identifiers used to process notifications for deleted requests may remain until the cleanup described above, even after account or family deletion. These records do not contain nicknames, request text or push tokens.
 
 Local login sessions are cleared during sign-out or account deletion. The app clears widget snapshots when it confirms there is no family membership, and clears stored push registrations after successful unregistration or account deletion. Local notice acknowledgments remain per account without automatic expiry and are removed when the app’s stored data is cleared. Device backup and restoration may affect retention depending on OS settings.
 
@@ -111,7 +113,7 @@ Users may request access to, correction of, deletion of, or suspension of proces
 
 * **In-App Management**:
   * Profile & Settings: Nicknames, characters, colors, reminder times, and language can be modified anytime in Settings.
-  * Missions & Reactions: Can be managed, edited, or deleted directly in the app according to domain rules.
+  * Requests & Reactions: Can be managed, edited, or deleted directly in the app according to domain rules.
   * Leaving Family & Account Deletion: Users can request 'Leave family' or 'Delete account' in the Profile menu. Leaving a family keeps the service account; Section 4 explains the deletion scope of each action.
 * **Email Inquiries**: If experiencing difficulties in the app, contact `yellodevs@gmail.com` for prompt assistance following identity verification. You may also request deletion of related information in external operational channels, such as Discord error summaries. The operator will locate and delete the relevant records and explain what was processed and the retention rules for remaining information, such as external backups.
 
@@ -156,7 +158,8 @@ The table below summarizes key changes from the Policy effective September 24, 2
 
 | Provision | Previous Description | Amended Description | Reason for Change |
 |---|---|---|---|
-| Section 1 — Account and authentication | Stated that legal names, photos and similar information were not collected; described social identifiers and authentication email | Distinguishes information not separately requested during general registration from provider-supplied email, name and profile image URLs; specifies reviewer email/password transmission | To distinguish app inputs from authentication-service processing |
+| Terminology throughout | Used “mission” for a task | Uses “request”, matching the app and notifications | To describe the same information and feature consistently |
+| Sections 1 and 2 — Account and authentication | Stated that legal names, photos and similar information were not collected; described social identifiers and authentication email | Distinguishes information not separately requested during general registration from provider-supplied email, name and profile image URLs; specifies reviewer email/password transmission, storage of authentication information and identification of the user’s own sign-in account | To distinguish app inputs from authentication-service processing |
 | Sections 1 and 2 — Diagnostics | Grouped device/error information with notification permission and runtime-error timing | Specifies collection during app use/diagnostics, screen/touch/network records, internal account or installation identifiers, country/city and diagnostic purposes | To accurately explain diagnostic data, timing and purposes |
 | Sections 1, 2 and 4 — Updates, consent and temporary records | No separate explanation of update requests, sign-up consent or temporary notification-processing records | Adds items and purposes; explains cleanup of temporary records at the next scheduled run for each type once they are more than 24 hours old | To clarify previously omitted processing and retention schedules |
 | Sections 1 and 4 — On-device storage | No separate explanation of local storage or notice acknowledgments | Explains local sessions, push registrations, widget snapshots and account-specific notice acknowledgments and their cleanup; distinguishes acknowledgments from sign-up consent | To distinguish device records from server consent records |
@@ -164,7 +167,7 @@ The table below summarizes key changes from the Policy effective September 24, 2
 | Sections 3 and 7 — Sharing and access | Described access to other families’ data as completely blocked | Distinguishes family sharing from limited pre-join previews through valid invitation links | To accurately explain access restrictions and invitation previews |
 | Sections 1 and 3 — Providers and international transfers | Included sign-in providers in the processor table and grouped countries, data and retention | Separates social sign-in providers as independent services; specifies provider countries, contacts, data, timing, methods and retention, update/Discord processing, notification titles and navigation/widget data | To distinguish provider roles and actual transmission/retention scope |
 | Section 3 — Turning off notifications and delivery lifetime | Stated that disabling device notifications stopped push-related overseas transfers | Attempts server unregistration when the app opens/returns after permission is disabled; excludes the device from new sends after success. Explains retries, device scope, in-flight messages and the 24-hour delivery lifetime | To correct inaccurate opt-out guidance and explain protective measures |
-| Section 4 — Mission retention | Described immediate permanent deletion at 90 days when activity-calculation purposes ended | Distinguishes incomplete-mission retention, 14-day activity calculation, 90-day investigation retention and the next daily cleanup after more than 90 days | To distinguish calculation periods from actual retention/deletion timing |
+| Section 4 — Request retention | Described immediate permanent deletion at 90 days when activity-calculation purposes ended | Distinguishes incomplete-request retention, 14-day activity calculation, 90-day investigation retention and the next daily cleanup after more than 90 days | To distinguish calculation periods from actual retention/deletion timing |
 | Sections 4 and 5 — Leaving and deletion | Described immediate deletion, anonymized shared missions and deletion of all data upon account deletion | Distinguishes leaving a family from account deletion; explains person-reference removal, preserved text, temporary/external records, backups and email-request procedures | To accurately explain deletion scope and rights-request methods |
 | Sections 3 and 4 — Sentry and Discord retention | Described Sentry diagnostics as retained for up to 90 days; no separate Discord retention explanation | Distinguishes 30-day Sentry error events from backups deleted within 90 days of creation. Discord summaries have no scheduled deletion or expiry and can be subject to deletion requests; DB backups last 30–45 days | To explain different retention rules for events, summary copies and backups |
 | Section 10 — Amendments | At least 7 days’ notice, or 30 days for significant or unfavorable changes | Preserves notice periods; adds publication of comparisons/previous versions and distinguishes factual corrections/protective-measure notices from the amended Policy’s announcement and effectiveness | To distinguish correction notices from the Policy’s formal announcement and effectiveness |
