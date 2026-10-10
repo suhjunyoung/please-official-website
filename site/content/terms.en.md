@@ -10,12 +10,12 @@ These Terms set out the conditions and procedures for using the Please! mobile a
 
 ## Article 2 (Definitions)
 
-1. **Service** means the Please! application and related services through which family members exchange one-line requests and cooperate through candy and levels.
+1. **Service** means the Please! application and related services through which family members exchange one-line requests and view their family's activity through candy and levels.
 2. **User** means a person who agrees to these Terms and uses the Service through social sign-in.
 3. **Family** means a private group of up to eight users who create or join the group through an invite link and share requests.
 4. **Request** means a one-line task registered for a family member to do.
 5. **Candy and levels** mean the visual reward system shown in the shared family jar based on completed requests and contributions.
-6. **Invite link** means a unique link, valid for 24 hours, used to invite a new member to a private family group.
+6. **Invite link** means a unique link used to invite a new member to a private family group. It is valid for 24 hours after it is created.
 
 ---
 
@@ -24,7 +24,7 @@ These Terms set out the conditions and procedures for using the Please! mobile a
 1. These Terms take effect when a user agrees to them during sign-up or onboarding.
 2. The Operator may amend these Terms to the extent permitted by applicable law.
 3. When the Terms change, the Operator will state the effective date and reason and provide notice in the app or Service at least seven days in advance, or 30 days in advance for material or unfavorable changes.
-4. Users may choose not to agree to the amended Terms. The Operator will provide separate guidance on necessary consent procedures in accordance with the amendment details and applicable laws. If a user does not agree, the scope of Service use and methods of contract termination will be notified prior to implementation, ensuring necessary procedures to exercise rights under applicable laws. Users may terminate the service agreement at any time by deleting their account.
+4. Users may choose not to agree to the amended Terms. The Operator will separately explain any consent procedures required by the changes and applicable law. Before the amended Terms take effect, the Operator will explain which parts of the Service remain available to users who do not agree and how to end the service agreement. The Operator will ensure that users can follow the procedures needed to exercise their rights under applicable law. Users may end the service agreement at any time by deleting their account.
 
 ---
 
@@ -53,7 +53,7 @@ These Terms set out the conditions and procedures for using the Please! mobile a
 
 ## Article 6 (User Responsibilities)
 
-1. **Take care with family-shared content:** Request text and heart reactions are shared with members of the same family. Request-created/completed/deleted notifications go to family members other than the person who performed the action. Planned family-join notifications go to existing members other than the person joining; planned heart notifications go only to the request's completer who still belongs to the family. No heart notification is sent for a self-reaction or a request without a completer. Request edits and completion undo actions do not send push notifications. Actual receipt depends on device registration, permission, and delivery status. Users should avoid content that could invade privacy or cause harm or misunderstanding.
+1. **Take care with family-shared content:** Request text and heart reactions are shared with members of the same family. Request-created/completed/deleted notifications go to family members other than the person who performed the action. Planned family-join notifications go to existing members other than the person joining. Planned heart notifications go only to the person who completed the request, provided they still belong to the family. No heart notification is sent for a self-reaction or when no one is recorded as having completed the request. Request edits and completion undo actions do not send push notifications. Actual receipt depends on device registration, permission, and delivery status. Users should avoid content that could invade privacy or cause harm or misunderstanding.
 2. Users must not:
    - Insult, defame, threaten, or harass another person
    - Post unlawful content or content contrary to public order and accepted standards
@@ -66,7 +66,7 @@ These Terms set out the conditions and procedures for using the Please! mobile a
 ## Article 7 (Content Rights and Use)
 
 1. Copyright in request text and other content created by a user remains with that user.
-2. The Operator may store, process, and display user content without charge only as needed to operate, display, notify, and improve the Service.
+2. The Operator may store, process, and display user content without charge only as needed to operate and improve the Service, display the content, and send notifications.
 
 ---
 
@@ -75,9 +75,9 @@ These Terms set out the conditions and procedures for using the Please! mobile a
 1. A user may leave their current family through Leave family in the app's profile settings. The Service account and sign-up consent records remain, and the user may create or join another family. A user may terminate the Service agreement through Delete account.
 2. **Leaving a family:**
    - Successful server processing deletes the departing user’s profile, including nickname, character and color, and device registrations.
-   - Shared requests remain for family continuity, with the departing requester, assignee and completer references removed. Text previously written in request titles remains visible to the family.
-   - When the last member successfully leaves on the server, the family and related Service database data are deleted. Temporary notification records, external diagnostics, operational logs and backups follow their respective Privacy Policy rules.
-3. **Request retention and cleanup:** Incomplete requests remain until an authorized member deletes them or the family is deleted; they are not automatically deleted because of age. Once completed, retention and cleanup are measured from the completion time. Levels and candy use the latest 14 calendar days in the family's time zone. Completed requests and hearts are retained to investigate calculation anomalies and related problems. Requests more than 90 days past completion and associated hearts are deleted by the next daily cleanup. Other deletion rules, such as family deletion, apply if triggered earlier.
+   - Shared requests remain so the remaining family members can continue using them. Information linking the departing user to those requests as their creator, assignee, or the person who completed them is removed. Text written directly in the requests remains visible to the family.
+   - When the last member's 'Leave family' request is successfully processed by the server, the family information and related records in the Service database are deleted. Temporary notification records, external diagnostics, operational logs and backups follow their respective Privacy Policy rules.
+3. **Request retention and cleanup:** Incomplete requests remain until an authorized member deletes them or the family is deleted; they are not automatically deleted because of age. Once completed, retention and cleanup are measured from the completion time. Levels and candy use the latest 14 calendar days in the family's time zone. Completed requests and hearts are retained to investigate calculation anomalies and related problems. Once more than 90 days have passed since a request was completed, the request and its associated hearts are deleted at the next daily cleanup. Other deletion rules, such as family deletion, apply if triggered earlier.
 4. Successful account deletion removes the authentication account, sign-up consent, profile and device registrations. Shared requests, temporary notification records and external retention follow the [Privacy Policy](/privacy/?lang=en). However, push notification messages already delivered to devices cannot be recalled.
 
 ---

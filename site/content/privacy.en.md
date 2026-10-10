@@ -13,7 +13,7 @@ The Service does not require legal names, phone numbers, dates of birth, photos,
 | Account & Authentication | Social sign-in identifier, internal account identifier, authentication metadata provided by sign-in providers (email, name, profile image URL) | Initial sign-in and authentication refresh |
 | Profile | Display name (nickname), character number, theme color, morning/evening reminder times, app language | Direct user entry during onboarding and settings changes |
 | Family | Family identifier and name, time zone, invite link token and expiration time | Family creation or invite link generation |
-| Request | Request identifier and text, creator and creation time, assignee tag, due date, status, completer and completion time | Request creation, editing, and completion |
+| Request | Request identifier and text, creator and creation time, assignee tag, due date, status, person who completed it and completion time | Request creation, editing, and completion |
 | Reaction | User sending a heart, target request, and reaction time | When tapping a heart on a completed request |
 | Push Registration | Expo push token, member/device registration identifiers and registration time | When the app verifies notification permissions and registers or updates a token |
 | Error & Diagnostics | Device model, OS, language, memory, app/update version, error messages, stack trace locations, screen transitions, touches, network diagnostics, internal account or SDK installation ID, approximate region (country/city) | Automatically collected during app runtime and diagnostics |
@@ -37,7 +37,7 @@ Collected information is used strictly for the following purposes and is **never
 5. **Widget Service**: Displaying and updating request snapshots on iOS / Android Home Screen widgets
 6. **Diagnostics & Quality Improvement**: Analyzing crash causes, diagnosing runtime errors, and enhancing stability and performance
 7. **App Updates**: Checking for and downloading compatible updates and checking update status
-8. **Consent Verification**: Maintaining proof of agreed policy version and consent timestamps
+8. **Consent Verification**: Recording and maintaining the version of the Terms the user agreed to and the time of consent
 
 ## 3. Delegation of Processing and International Transfers
 
@@ -72,7 +72,7 @@ Push delivery, app update checks, diagnostics, and infrastructure operations inv
 
 **Notification lifetime**: To avoid delivering outdated notifications, we set the push message delivery lifetime to 24 hours. This is separate from retention of push tokens, operational logs and update requests.
 
-Removing a device registration from the app's server is separate from deleting identifiers or logs held by Apple, Google, or other external providers. Requests to delete externally retained information can be sent to the contact in Section 5.
+Removing a device's notification registration from the app's server does not also delete identifiers or logs held by Apple, Google, or other external providers. Requests to delete externally retained information can be sent to the contact in Section 5.
 
 **To turn off notifications**:
 * Turn off Please! notifications in device settings, then reopen the app while connected to the internet. Once the app removes this device’s notification registration from the server, it will no longer be targeted for new notifications.
@@ -95,9 +95,9 @@ Removing a device registration from the app's server is separate from deleting i
 | Operational error summaries | Discord summaries have no scheduled deletion or automatic expiry and may remain until the message or channel is deleted. Deleting a Please! account does not remove them. Personal-data deletion requests can be sent to the contact in Section 5. Discord database backups are retained for 30–45 days; this is not the message expiry period |
 | Error diagnostics | Sentry error events are retained for **30 days**. Event backups are deleted **within a maximum of 90 days after each backup is created**, depending on the data type. Discord summaries follow their separate row in this table |
 
-* Activity levels and candy counts are calculated based on the latest 14 calendar days in the family's time zone. The 90-day retention of completed requests is a separate retention window for statistical verification and operational stability.
+* Activity levels and candy counts use activity from the latest 14 calendar days, including today, based on the family's time zone. The 90-day retention of completed requests is a separate retention window for statistical verification and operational stability.
 
-When other members remain in the family, shared requests remain but references to the departing member as creator, assignee or completer are removed. Names or other text written directly in request contents are not automatically erased.
+When other members remain in the family, shared requests remain. Information linking the departing member to those requests as their creator, assignee, or the person who completed them is removed. Names or other text written directly in request contents are not automatically erased.
 
 Temporary identifiers used to process notifications for deleted requests may remain until the cleanup described above, even after account or family deletion. These records do not contain nicknames, request text or push tokens.
 
@@ -113,8 +113,8 @@ Users may request access to, correction of, deletion of, or suspension of proces
 
 * **In-App Management**:
   * Profile & Settings: Nicknames, characters, colors, reminder times, and language can be modified anytime in Settings.
-  * Requests & Reactions: Can be managed, edited, or deleted directly in the app according to domain rules.
-  * Leaving Family & Account Deletion: Users can request 'Leave family' or 'Delete account' in the Profile menu. Leaving a family keeps the service account; Section 4 explains the deletion scope of each action.
+  * Requests & Reactions: Users can manage requests and heart reactions directly in the app under the Service's rules, including the rules for editing or deleting requests and undoing completion.
+  * Leaving Family & Account Deletion: Users can request 'Leave family' or 'Delete account' in the Profile menu. Leaving a family does not delete the service account. Section 4 explains the deletion scope of each action.
 * **Email Inquiries**: If experiencing difficulties in the app, contact `yellodevs@gmail.com` for prompt assistance following identity verification. You may also request deletion of related information in external operational channels, such as Discord error summaries. The operator will locate and delete the relevant records and explain what was processed and the retention rules for remaining information, such as external backups.
 
 ## 6. Protection of Children Under 14
