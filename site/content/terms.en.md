@@ -110,8 +110,8 @@ These Terms set out the conditions and procedures for using the Please! mobile a
 
 - **Operator:** yellodevs (Junyoung Suh and Heesung Kim)
 - **Contact:** `yellodevs@gmail.com`
-- **Published:** Upon app update release
-- **Effective:** Upon app update release
+- **Published:** October 12, 2026, 09:00 KST (UTC+9)
+- **Effective:** October 12, 2026, 09:00 KST (UTC+9)
 
 ---
 

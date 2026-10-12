@@ -147,8 +147,8 @@ This Policy may be amended to reflect changes in laws, policies, or technical op
 
 Corrections to factual statements will be announced promptly when confirmed. Correction notices and the application of protective measures will be explained separately from the announcement and effective dates of the amended Policy as a whole.
 
-* **Announcement Date**: Upon app update release
-* **Effective Date**: Upon app update release
+* **Announcement Date**: October 12, 2026, 09:00 KST (UTC+9)
+* **Effective Date**: October 12, 2026, 09:00 KST (UTC+9)
 
 ---
 
