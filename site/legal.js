@@ -147,8 +147,8 @@ async function loadDocument(language) {
     });
     if (legalMeta) {
       legalMeta.textContent = language === 'en'
-        ? 'Effective: Upon app update release'
-        : '시행일자: 앱 업데이트 배포 시';
+        ? 'Effective: October 12, 2026, 09:00 KST (UTC+9)'
+        : '시행일자: 2026-10-12 09:00 (한국 시각)';
     }
     window.history.replaceState(null, '', language === 'en' ? '?lang=en' : window.location.pathname);
   } catch {
