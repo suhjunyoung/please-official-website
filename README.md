@@ -33,6 +33,14 @@ python3 -m http.server 8000 --directory site
 
 Open `http://localhost:8000`.
 
+## Policy revision review
+
+The original four `site/content/*.md` files remain the immutable v2 copies. `/terms/?version=v2` and `/privacy/?version=v2` pin those documents. The v3 source and announcement are in `site/content/v3/`; the separate notification retention correction is in `site/content/corrections/`.
+
+`site/policy-release.js` holds announcement, effective and correction publication timestamps. They are currently unset: default pages still show v2 and normal requests for v3 are unavailable. On localhost only, `?preview=v3`, `?preview=announcement` and `?preview=correction` show explicit unpublished review copies. `lang=en` preserves the selected version. These review overrides do not work on the public host.
+
+Run `node --test tests/policy-release.test.cjs` to check publication/effective boundaries, the seven-day interval, pinned versions, language links and the separate correction schedule. Dates in tests are fixtures, not a release schedule. The Wrangler build check deliberately refuses deployment while dates/placeholders remain unresolved. Update the canonical sources in `hsskim/project-please/docs/legal/` before syncing site copies, then check exact source equality and dates. Do not deploy this draft branch before review and schedule agreement. Implementation is tracked in [#541](https://github.com/hsskim/project-please/issues/541); actual publication and app notice delivery remain in [#542](https://github.com/hsskim/project-please/issues/542).
+
 ## Project structure
 
 ```text
