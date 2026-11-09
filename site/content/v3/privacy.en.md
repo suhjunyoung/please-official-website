@@ -58,7 +58,7 @@ We entrust storage, authentication, notification and diagnostic operations to th
 | Entrusted Entity | Delegated Processing Scope | Information Transferred |
 |---|---|---|
 | Supabase Pte. Ltd. | Cloud database storage and authentication | Account/authentication, family profiles, account settings (including device time zone), family, request, reaction, push registration, consent and notification-processing records |
-| 650 Industries, Inc. (Expo) | Push notification relay and app update download verification | Push token, notification title/body (nicknames and request text, plus the family name for recipients who belong to two or more families), widget data, update request metadata |
+| 650 Industries, Inc. (Expo) | Push notification relay and app update download verification | Push token, notification title/body (nicknames and request text, plus the family name for recipients who belong to two or more families), navigation/widget update data, update request metadata |
 | Apple Inc. (APNs) · Google LLC (FCM) | Final delivery of push notifications to devices | Push token, notification title/body, navigation/widget update data |
 | Functional Software, Inc. (Sentry) | Crash detection, error analysis, and performance monitoring | Device/OS/app information, diagnostic logs, internal account or SDK installation ID, approximate region |
 
