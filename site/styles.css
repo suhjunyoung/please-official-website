@@ -563,20 +563,49 @@ img { display: block; max-width: 100%; }
   .candy-visual-app .app-jar-stage { transform: scale(.98); }
 }
 
-/* Current/upcoming legal versions use the existing page width and text scale. */
-.policy-version-switch,
+/* Current/upcoming legal versions use the existing card width and text scale. */
+.policy-version-switch { display: none; }
 .policy-status {
-  width: min(100% - 2.5rem, 1120px);
-  margin: 0 auto 1.25rem;
+  width: min(920px, calc(100vw - 32px));
+  margin: 0 auto 20px;
+  padding: 15px 22px;
+  border: 1px solid rgba(217, 110, 18, 0.24);
+  border-radius: 18px;
+  background: var(--orange-soft);
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 20px;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
-.policy-version-switch { display: flex; flex-wrap: wrap; gap: .65rem; }
-.policy-version-switch a {
-  display: inline-flex; align-items: center; min-height: 44px;
-  padding: .5rem 1rem; border: 1px solid #b9b0a7; border-radius: 999px;
-  color: #3d352f; background: #fffdf9; text-decoration: none; overflow-wrap: anywhere;
-}
-.policy-version-switch a[aria-current="page"] { background: #eee2d2; border-color: #8f7560; font-weight: 600; }
-.policy-status { padding: 1rem; border: 1px solid #c9ad87; border-radius: 16px; background: #fff4dd; color: #463820; overflow-wrap: anywhere; }
 .policy-status[hidden] { display: none; }
-.policy-status p { margin: 0; }
-.policy-status a { display: inline-block; margin-top: .5rem; color: inherit; text-decoration: underline; }
+.policy-status p { margin: 0; color: var(--ink); }
+.policy-status-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 18px;
+  margin-left: auto;
+}
+.policy-status a {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0;
+  color: var(--orange-dark);
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.policy-status a.policy-status-secondary {
+  color: var(--ink-soft);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.policy-status a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
