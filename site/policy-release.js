@@ -3,9 +3,9 @@ const POLICY_RELEASE = Object.freeze({
   v2EffectiveAt: '2026-10-12T09:00:00+09:00',
   publishedDate: '2026-11-12',
   effectiveDate: '2026-11-19',
-  publishedAt: null,
-  effectiveAt: null,
-  correctionPublishedAt: null,
+  publishedAt: '2026-11-12T23:30:00+09:00',
+  effectiveAt: '2026-11-19T23:30:00+09:00',
+  correctionPublishedAt: '2026-11-12T23:30:00+09:00',
 });
 
 function policyView(search, hostname, now = Date.now(), schedule = POLICY_RELEASE) {

@@ -2,6 +2,7 @@ const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const { POLICY_RELEASE, policyView, policyUrl, policySource, policyDate } = require('../site/policy-release.js');
 
+const unsetSchedule = { ...POLICY_RELEASE, publishedAt: null, effectiveAt: null, correctionPublishedAt: null };
 const schedule = { ...POLICY_RELEASE,
   publishedAt: '2027-01-10T09:00:00+09:00', effectiveAt: '2027-01-17T09:00:00+09:00' };
 const published = Date.parse(schedule.publishedAt);
@@ -10,9 +11,9 @@ const view = (search, now = published, host = 'please.yellodevs.space', config =
   policyView(search, host, now, config);
 
 test('unset dates keep current v2 and do not publish v3 through a query parameter', () => {
-  assert.equal(view('', effective, undefined, POLICY_RELEASE).version, 'v2');
+  assert.equal(view('', effective, undefined, unsetSchedule).version, 'v2');
   for (const search of ['?version=v3', '?preview=v3', '?version=v3&preview=v3']) {
-    const result = view(search, effective, undefined, POLICY_RELEASE);
+    const result = view(search, effective, undefined, unsetSchedule);
     assert.equal(result.showV3, false);
     if (search.includes('version=')) assert.equal(policySource('privacy', result), null);
   }
@@ -37,27 +38,27 @@ test('missing, invalid, unzoned or shorter-than-seven-day schedules fail closed'
   ]) assert.equal(view('?version=v3', effective, undefined, config).available, false);
 });
 test('localhost review switches versions without pretending v3 is effective', () => {
-  const result = view('?preview=v3', effective, '127.0.0.1', POLICY_RELEASE);
+  const result = view('?preview=v3', effective, '127.0.0.1', unsetSchedule);
   assert.equal(result.version, 'v3'); assert.equal(result.draft, true); assert.equal(result.active, false);
-  const old = view('?version=v2&preview=v3', effective, 'localhost', POLICY_RELEASE);
+  const old = view('?version=v2&preview=v3', effective, 'localhost', unsetSchedule);
   assert.equal(old.draft, false); assert.equal(old.showV3, true);
   assert.equal(policySource('privacy', result), '/content/v3/privacy.ko.md');
 });
 test('language and legal cross-links preserve exact versions and local review context', () => {
-  const result = view('?preview=v3&lang=en', effective, 'localhost', POLICY_RELEASE);
+  const result = view('?preview=v3&lang=en', effective, 'localhost', unsetSchedule);
   assert.equal(policyUrl('terms', result), '/terms/?version=v3&lang=en&preview=v3');
   assert.equal(policySource('privacy', result), '/content/v3/privacy.en.md');
   assert.equal(policyUrl('privacy', result, 'v2'), '/privacy/?version=v2&lang=en&preview=v3');
 });
 test('correction has its own publication boundary independent of v3', () => {
-  const config = { ...POLICY_RELEASE, correctionPublishedAt: schedule.publishedAt };
+  const config = { ...unsetSchedule, correctionPublishedAt: schedule.publishedAt };
   assert.equal(view('?version=correction', published - 1, undefined, config).available, false);
   const result = view('?version=correction&lang=en', published, undefined, config);
   assert.equal(result.announced, false); assert.equal(result.corrected, true);
   assert.equal(policySource('privacy', result), '/content/corrections/notification-retention.en.md');
 });
 test('unknown versions, hosts and document types cannot select arbitrary sources', () => {
-  assert.equal(view('?preview=v3', effective, 'localhost.evil.example', POLICY_RELEASE).draft, false);
+  assert.equal(view('?preview=v3', effective, 'localhost.evil.example', unsetSchedule).draft, false);
   assert.equal(policySource('privacy', view('?version=../../other', effective)), null);
   assert.equal(policySource('../private', view('')), null);
 });
@@ -71,5 +72,6 @@ test('prepared date-only labels do not invent a midnight activation time', () =>
     assert.doesNotMatch(date, /00:00/);
     assert.match(policyDate('2026-11-19T10:00:00+09:00', language), /10:00/);
   }
-  assert.equal(policyView('', 'please.yellodevs.space', effective).version, 'v2');
+  assert.equal(policyView('', 'please.yellodevs.space', Date.parse(POLICY_RELEASE.publishedAt)).version, 'v2');
+  assert.equal(policyView('', 'please.yellodevs.space', Date.parse(POLICY_RELEASE.effectiveAt)).version, 'v3');
 });

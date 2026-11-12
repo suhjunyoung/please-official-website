@@ -17,4 +17,4 @@ This notice corrects information about processing already in operation. It is se
 
 Questions and privacy requests: [yellodevs@gmail.com](mailto:yellodevs@gmail.com)
 
-* **Published**: YYYY-MM-DD, HH:MM KST (UTC+9)
+* **Published**: 2026-11-12, 23:30 KST (UTC+9)

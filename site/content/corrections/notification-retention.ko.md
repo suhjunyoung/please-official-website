@@ -17,4 +17,4 @@
 
 문의 및 개인정보 권리 행사: [yellodevs@gmail.com](mailto:yellodevs@gmail.com)
 
-* **게시일자**: YYYY-MM-DD HH:MM (한국 시각)
+* **게시일자**: 2026-11-12 23:30 (한국 시각)
