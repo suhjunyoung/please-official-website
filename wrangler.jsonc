@@ -4,6 +4,7 @@
   "name": "please-official-website",
   "compatibility_date": "2026-09-29",
   "main": "worker.js",
+  "build": { "command": "node scripts/check-policy-release.cjs" },
   "assets": {
     "directory": "./site",
     "binding": "ASSETS",

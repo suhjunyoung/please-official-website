@@ -562,3 +562,21 @@ img { display: block; max-width: 100%; }
 @media (max-width: 360px) {
   .candy-visual-app .app-jar-stage { transform: scale(.98); }
 }
+
+/* Current/upcoming legal versions use the existing page width and text scale. */
+.policy-version-switch,
+.policy-status {
+  width: min(100% - 2.5rem, 1120px);
+  margin: 0 auto 1.25rem;
+}
+.policy-version-switch { display: flex; flex-wrap: wrap; gap: .65rem; }
+.policy-version-switch a {
+  display: inline-flex; align-items: center; min-height: 44px;
+  padding: .5rem 1rem; border: 1px solid #b9b0a7; border-radius: 999px;
+  color: #3d352f; background: #fffdf9; text-decoration: none; overflow-wrap: anywhere;
+}
+.policy-version-switch a[aria-current="page"] { background: #eee2d2; border-color: #8f7560; font-weight: 600; }
+.policy-status { padding: 1rem; border: 1px solid #c9ad87; border-radius: 16px; background: #fff4dd; color: #463820; overflow-wrap: anywhere; }
+.policy-status[hidden] { display: none; }
+.policy-status p { margin: 0; }
+.policy-status a { display: inline-block; margin-top: .5rem; color: inherit; text-decoration: underline; }
