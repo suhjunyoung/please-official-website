@@ -144,26 +144,49 @@ function renderMarkdown(markdown) {
 
 function showPolicyState(view) {
   const en = view.language === 'en';
+  const docLabel = documentType === 'terms' ? '약관' : '개인정보 처리방침';
+  const docNameEn = documentType === 'terms' ? 'Terms of Service' : 'Privacy Policy';
   const labels = en ? {
-    current: 'Current v2', old: 'Previous v2', v3: view.active ? 'Current v3' : view.draft ? 'Review v3' : 'Upcoming v3',
+    current: 'Current version',
+    old: 'Previous version',
+    v3: view.active ? 'Current version' : view.draft ? 'Upcoming (Review)' : 'Upcoming version',
     draft: 'Review copy · Not published. Exact publication and effective times will be confirmed before publication.',
-    upcoming: 'Upcoming version. The currently effective version remains v2 until the effective date.',
-    previous: 'Previous version. View current v3 for the currently effective document.',
-    missing: 'This document has not been published. Select the current document above.',
-    correction: 'Correction to current processing information; separate from the v3 revision schedule.',
+    upcomingNotice: `An updated ${docNameEn} will take effect on 19 Nov 2026.`,
+    upcoming: 'This is an upcoming version. The current version remains in effect until the effective date.',
+    activeCurrent: 'This is the currently effective version.',
+    previous: 'This is a previous version. Please check the current version for the terms currently in effect.',
+    missing: 'This document has not been published. Please check the current version.',
+    correction: 'Correction to current processing information, separate from the upcoming update schedule.',
+    announcementBanner: view.active
+      ? 'This is the policy update notice.'
+      : 'This is a summary of the upcoming update. The current version remains in effect until the effective date.',
     announcement: 'Terms and privacy update notice',
     correctionLink: 'Notification record retention correction',
+    viewUpcoming: 'View upcoming version →',
+    viewCurrent: 'View current version →',
+    viewPrevious: 'View previous version →',
   } : {
-    current: '현재 v2', old: '이전 v2', v3: view.active ? '현재 v3' : view.draft ? 'v3 검토본' : '시행 예정 v3',
-    draft: '검토본 · 미게시. 정확한 게시·전환 시각은 발행 전에 확정합니다.',
-    upcoming: '시행 예정 문서입니다. 시행 전까지 현재 유효한 문서는 v2입니다.',
-    previous: '이전 문서입니다. 현재 유효한 문서는 v3에서 확인해 주세요.',
-    missing: '아직 공개되지 않은 문서입니다. 위에서 현재 문서를 선택해 주세요.',
-    correction: '현재 처리 사실의 정정 안내이며, v3 개정 일정과는 별개입니다.',
+    current: '현행본',
+    old: '이전 버전',
+    v3: view.active ? '현행본' : view.draft ? '예정 개정본 (검토본)' : '예정 개정본',
+    draft: '검토본 · 미게시 문서입니다. 정확한 게시·전환 시각은 발행 전에 확정합니다.',
+    upcomingNotice: `2026년 11월 19일 시행 예정인 개정 ${docLabel}이 있습니다.`,
+    upcoming: '시행 예정인 개정본입니다. 시행일 전까지는 현행본이 적용됩니다.',
+    activeCurrent: '현재 적용 중인 현행본입니다.',
+    previous: '이전에 적용되던 문서입니다. 현재 적용 중인 내용은 현행본에서 확인해 주세요.',
+    missing: '아직 공개되지 않은 문서입니다. 현행본을 확인해 주세요.',
+    correction: '현재 운영 중인 처리 기준에 대한 정정 안내이며, 예정 개정본 시행 일정과는 별개입니다.',
+    announcementBanner: view.active
+      ? '약관·개인정보 처리방침 개정 안내입니다.'
+      : '시행 예정인 개정 내용 안내입니다. 시행일 전까지는 현행본이 적용됩니다.',
     announcement: '약관·개인정보 처리방침 개정 안내',
     correctionLink: '알림 처리 기록 보관 안내 정정',
+    viewUpcoming: '예정 개정본 보기 →',
+    viewCurrent: '현행본 보기 →',
+    viewPrevious: '이전 버전 보기 →',
   };
   versionSwitch.replaceChildren();
+  versionSwitch.hidden = true;
   versionSwitch.setAttribute('aria-label', en ? 'Document version' : '문서 버전');
   for (const [version, label] of [['v2', view.active ? labels.old : labels.current], ...(view.showV3 ? [['v3', labels.v3]] : [])]) {
     const link = document.createElement('a'); link.href = policyUrl(documentType, view, version);
@@ -171,16 +194,48 @@ function showPolicyState(view) {
     if (view.version === version) link.setAttribute('aria-current', 'page');
     versionSwitch.append(link);
   }
-  const message = !view.available ? labels.missing : view.draft ? labels.draft
+  const currentEffectiveVersion = view.active ? 'v3' : 'v2';
+  const message = !view.available ? labels.missing
+    : view.draft ? labels.draft
     : view.version === 'correction' ? labels.correction
+    : view.version === 'announcement' ? labels.announcementBanner
     : view.version === 'v3' && !view.active ? labels.upcoming
-    : view.version === 'v2' && view.active ? labels.previous : '';
+    : view.version === 'v3' && view.active ? labels.activeCurrent
+    : view.version === 'v2' && view.active ? labels.previous
+    : view.version === 'v2' && view.showV3 ? labels.upcomingNotice : '';
+  const switchTarget = !view.available ? [currentEffectiveVersion, labels.viewCurrent]
+    : view.version === 'v2' && view.showV3 && !view.active ? ['v3', labels.viewUpcoming]
+    : view.version === 'v2' && view.active ? ['v3', labels.viewCurrent]
+    : view.version === 'v3' && !view.active ? ['v2', labels.viewCurrent]
+    : view.version === 'v3' && view.active ? ['v2', labels.viewPrevious]
+    : ['announcement', 'correction'].includes(view.version) ? [currentEffectiveVersion, labels.viewCurrent]
+    : null;
   policyStatus.replaceChildren();
-  policyStatus.hidden = !message && !(view.corrected && documentType === 'privacy');
-  if (message) { const text = document.createElement('p'); text.textContent = message; policyStatus.append(text); }
-  if (view.corrected && documentType === 'privacy' && view.version !== 'correction') {
-    const link = document.createElement('a'); link.href = policyUrl(documentType, view, 'correction');
-    link.textContent = labels.correctionLink; policyStatus.append(link);
+  const showCorrectionLink = view.corrected && documentType === 'privacy' && view.version !== 'correction';
+  policyStatus.hidden = !message && !switchTarget && !showCorrectionLink;
+  if (message) {
+    const text = document.createElement('p');
+    text.textContent = message;
+    policyStatus.append(text);
+  }
+  if (switchTarget || showCorrectionLink) {
+    const actions = document.createElement('div');
+    actions.className = 'policy-status-links';
+    if (showCorrectionLink) {
+      const corrLink = document.createElement('a');
+      corrLink.className = 'policy-status-secondary';
+      corrLink.href = policyUrl(documentType, view, 'correction');
+      corrLink.textContent = labels.correctionLink;
+      actions.append(corrLink);
+    }
+    if (switchTarget) {
+      const [targetVersion, targetLabel] = switchTarget;
+      const switchLink = document.createElement('a');
+      switchLink.href = policyUrl(documentType, view, targetVersion);
+      switchLink.textContent = targetLabel;
+      actions.append(switchLink);
+    }
+    policyStatus.append(actions);
   }
   const heading = document.querySelector('.page-hero h1');
   heading.textContent = view.version === 'correction' ? labels.correctionLink
