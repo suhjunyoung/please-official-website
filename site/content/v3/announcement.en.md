@@ -11,8 +11,8 @@ Existing users do not need to give consent again for this update. If you do not 
 
 Before the effective date, you can view the currently effective documents separately from the upcoming versions. Feature availability may vary with the app update and release schedule.
 
-* **Published**: YYYY-MM-DD, HH:MM KST (UTC+9)
-* **Effective**: YYYY-MM-DD, HH:MM KST (UTC+9)
+* **Published**: 2026-11-12 (KST, UTC+9)
+* **Effective**: 2026-11-19 (KST, UTC+9)
 * [Full Terms of Service](https://please.yellodevs.space/terms/?version=v3&lang=en)
 * [Full Privacy Policy](https://please.yellodevs.space/privacy/?version=v3&lang=en)
 * **Contact**: [yellodevs@gmail.com](mailto:yellodevs@gmail.com)

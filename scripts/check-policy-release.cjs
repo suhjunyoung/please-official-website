@@ -5,7 +5,7 @@ const timestamp = value => typeof value === 'string' && /T.*(?:Z|[+-]\d\d:\d\d)$
 const published = timestamp(schedule.publishedAt);
 const effective = timestamp(schedule.effectiveAt);
 assert.ok(Number.isFinite(published) && Number.isFinite(effective),
-  'Review-only branch: agree announcement/effective dates before deployment.');
+  'Review-only branch: confirm exact publication/effective times before deployment.');
 assert.ok(effective - published >= 7 * 86400000, 'The configured notice period must be at least seven days.');
 assert.ok(Number.isFinite(timestamp(schedule.correctionPublishedAt)),
   'Choose and record the separate correction publication date before deployment.');

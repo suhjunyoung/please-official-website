@@ -11,8 +11,8 @@
 
 시행 전에는 현재 유효한 문서와 시행 예정인 문서를 구분해 확인할 수 있습니다. 실제 기능 제공 시점은 앱 업데이트와 공개 일정에 따라 달라질 수 있습니다.
 
-* **공고일자**: YYYY-MM-DD HH:MM (한국 시각)
-* **시행일자**: YYYY-MM-DD HH:MM (한국 시각)
+* **공고일자**: 2026-11-12 (한국 시각)
+* **시행일자**: 2026-11-19 (한국 시각)
 * [이용약관 전문](https://please.yellodevs.space/terms/?version=v3)
 * [개인정보 처리방침 전문](https://please.yellodevs.space/privacy/?version=v3)
 * **문의처**: [yellodevs@gmail.com](mailto:yellodevs@gmail.com)

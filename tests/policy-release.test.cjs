@@ -1,6 +1,6 @@
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
-const { POLICY_RELEASE, policyView, policyUrl, policySource } = require('../site/policy-release.js');
+const { POLICY_RELEASE, policyView, policyUrl, policySource, policyDate } = require('../site/policy-release.js');
 
 const schedule = { ...POLICY_RELEASE,
   publishedAt: '2027-01-10T09:00:00+09:00', effectiveAt: '2027-01-17T09:00:00+09:00' };
@@ -60,4 +60,16 @@ test('unknown versions, hosts and document types cannot select arbitrary sources
   assert.equal(view('?preview=v3', effective, 'localhost.evil.example', POLICY_RELEASE).draft, false);
   assert.equal(policySource('privacy', view('?version=../../other', effective)), null);
   assert.equal(policySource('../private', view('')), null);
+});
+
+test('prepared date-only labels do not invent a midnight activation time', () => {
+  for (const language of ['ko', 'en']) {
+    const date = policyDate(POLICY_RELEASE.effectiveDate, language);
+    assert.match(date, /2026/);
+    assert.match(date, /11/);
+    assert.match(date, /19/);
+    assert.doesNotMatch(date, /00:00/);
+    assert.match(policyDate('2026-11-19T10:00:00+09:00', language), /10:00/);
+  }
+  assert.equal(policyView('', 'please.yellodevs.space', effective).version, 'v2');
 });

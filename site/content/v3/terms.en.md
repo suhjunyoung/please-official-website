@@ -116,8 +116,8 @@ These Terms set out the conditions and procedures for using the Please! mobile a
 
 - **Operator:** yellodevs (Junyoung Suh and Heesung Kim)
 - **Contact:** `yellodevs@gmail.com`
-- **Published:** YYYY-MM-DD, HH:MM KST (UTC+9)
-- **Effective:** YYYY-MM-DD, HH:MM KST (UTC+9)
+- **Published:** 2026-11-12 (KST, UTC+9)
+- **Effective:** 2026-11-19 (KST, UTC+9)
 
 ---
 

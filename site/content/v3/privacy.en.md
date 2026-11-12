@@ -160,8 +160,8 @@ This Policy may be amended to reflect changes in laws, policies, or technical op
 
 Corrections to factual statements will be announced promptly when confirmed. Correction notices and the application of protective measures will be explained separately from the announcement and effective dates of the amended Policy as a whole.
 
-* **Announcement Date**: YYYY-MM-DD, HH:MM KST (UTC+9)
-* **Effective Date**: YYYY-MM-DD, HH:MM KST (UTC+9)
+* **Announcement Date**: 2026-11-12 (KST, UTC+9)
+* **Effective Date**: 2026-11-19 (KST, UTC+9)
 
 ---
 

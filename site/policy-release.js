@@ -1,6 +1,8 @@
-/* Dates stay null until the announcement and effective schedule is agreed. */
+/* Prepared dates are agreed; exact publication/effective times remain unset. */
 const POLICY_RELEASE = Object.freeze({
   v2EffectiveAt: '2026-10-12T09:00:00+09:00',
+  publishedDate: '2026-11-12',
+  effectiveDate: '2026-11-19',
   publishedAt: null,
   effectiveAt: null,
   correctionPublishedAt: null,
@@ -47,4 +49,13 @@ function policySource(kind, view) {
   return null;
 }
 
-if (typeof module !== 'undefined') module.exports = { POLICY_RELEASE, policyView, policyUrl, policySource };
+function policyDate(value, language) {
+  if (!value) return language === 'en' ? 'To be decided' : '미정';
+  const dateOnly = /^\d{4}-\d{2}-\d{2}$/.test(value);
+  return new Intl.DateTimeFormat(language === 'en' ? 'en-GB' : 'ko-KR', {
+    timeZone: 'Asia/Seoul', year: 'numeric', month: '2-digit', day: '2-digit',
+    ...(dateOnly ? {} : { hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }),
+  }).format(new Date(dateOnly ? `${value}T00:00:00+09:00` : value)) + ' KST';
+}
+
+if (typeof module !== 'undefined') module.exports = { POLICY_RELEASE, policyView, policyUrl, policySource, policyDate };

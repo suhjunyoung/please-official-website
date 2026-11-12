@@ -142,19 +142,11 @@ function renderMarkdown(markdown) {
   return html.join('');
 }
 
-function policyDate(value, language) {
-  if (!value) return language === 'en' ? 'To be decided' : '미정';
-  return new Intl.DateTimeFormat(language === 'en' ? 'en-GB' : 'ko-KR', {
-    timeZone: 'Asia/Seoul', year: 'numeric', month: '2-digit', day: '2-digit',
-    hour: '2-digit', minute: '2-digit', hourCycle: 'h23',
-  }).format(new Date(value)) + ' KST';
-}
-
 function showPolicyState(view) {
   const en = view.language === 'en';
   const labels = en ? {
     current: 'Current v2', old: 'Previous v2', v3: view.active ? 'Current v3' : view.draft ? 'Review v3' : 'Upcoming v3',
-    draft: 'Review copy · Not published. Announcement and effective dates are not yet set.',
+    draft: 'Review copy · Not published. Exact publication and effective times will be confirmed before publication.',
     upcoming: 'Upcoming version. The currently effective version remains v2 until the effective date.',
     previous: 'Previous version. View current v3 for the currently effective document.',
     missing: 'This document has not been published. Select the current document above.',
@@ -163,7 +155,7 @@ function showPolicyState(view) {
     correctionLink: 'Notification record retention correction',
   } : {
     current: '현재 v2', old: '이전 v2', v3: view.active ? '현재 v3' : view.draft ? 'v3 검토본' : '시행 예정 v3',
-    draft: '검토본 · 미게시. 공고일과 시행일은 아직 정하지 않았습니다.',
+    draft: '검토본 · 미게시. 정확한 게시·전환 시각은 발행 전에 확정합니다.',
     upcoming: '시행 예정 문서입니다. 시행 전까지 현재 유효한 문서는 v2입니다.',
     previous: '이전 문서입니다. 현재 유효한 문서는 v3에서 확인해 주세요.',
     missing: '아직 공개되지 않은 문서입니다. 위에서 현재 문서를 선택해 주세요.',
@@ -211,7 +203,7 @@ function showPolicyState(view) {
     ? `${en ? 'Effective' : '시행일자'}: ${policyDate(POLICY_RELEASE.v2EffectiveAt, view.language)}`
     : view.version === 'correction'
     ? `${en ? 'Published' : '게시일자'}: ${policyDate(POLICY_RELEASE.correctionPublishedAt, view.language)}`
-    : `${en ? 'Published' : '공고일자'}: ${policyDate(POLICY_RELEASE.publishedAt, view.language)} · ${en ? 'Effective' : '시행일자'}: ${policyDate(POLICY_RELEASE.effectiveAt, view.language)}`;
+    : `${en ? 'Published' : '공고일자'}: ${policyDate(POLICY_RELEASE.publishedAt || POLICY_RELEASE.publishedDate, view.language)} · ${en ? 'Effective' : '시행일자'}: ${policyDate(POLICY_RELEASE.effectiveAt || POLICY_RELEASE.effectiveDate, view.language)}`;
 }
 
 async function loadDocument(language) {
