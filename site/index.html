@@ -4,184 +4,361 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#fff8ef" />
-    <meta name="description" content="가족의 작은 부탁이 잊히지 않도록. 한 줄 부탁과 캔디로 함께하는 가족 할 일 앱 Please!" />
+    <meta name="description" content="가족이나 친구의 작은 부탁이 잊히지 않도록. 한 줄 부탁과 캔디로 일상을 나누는 할 일 앱 Please!" />
     <link rel="canonical" href="https://please.yellodevs.space/" />
     <link rel="icon" type="image/png" href="/favicon.png?v=2" />
     <link rel="apple-touch-icon" href="/favicon.png?v=2" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ko_KR" />
     <meta property="og:site_name" content="Please!" />
-    <meta property="og:title" content="Please! — 가족의 작은 부탁이 잊히지 않도록" />
-    <meta property="og:description" content="한 줄 부탁을 나누고, 함께 끝낸 일은 가족의 캔디로 쌓아 보세요." />
+    <meta property="og:title" content="Please! — 작은 부탁이 잊히지 않도록" />
+    <meta property="og:description" content="한 줄 부탁으로 서로의 하루를 챙기고, 함께 끝낸 일은 캔디로 쌓아 보세요." />
     <meta property="og:url" content="https://please.yellodevs.space/" />
     <meta property="og:image" content="https://please.yellodevs.space/assets/social/please-og.png?v=20261005" />
     <meta property="og:image:secure_url" content="https://please.yellodevs.space/assets/social/please-og.png?v=20261005" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Please! 앱의 가족 부탁 목록과 앱 다운로드 버튼" />
+    <meta property="og:image:alt" content="Please! 앱의 부탁 목록과 앱 다운로드 버튼" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Please! — 가족의 작은 부탁이 잊히지 않도록" />
-    <meta name="twitter:description" content="한 줄 부탁을 나누고, 함께 끝낸 일은 가족의 캔디로 쌓아 보세요." />
+    <meta name="twitter:title" content="Please! — 작은 부탁이 잊히지 않도록" />
+    <meta name="twitter:description" content="한 줄 부탁으로 서로의 하루를 챙기고, 함께 끝낸 일은 캔디로 쌓아 보세요." />
     <meta name="twitter:image" content="https://please.yellodevs.space/assets/social/please-og.png?v=20261005" />
-    <title>Please! — 우리 가족 한 줄 부탁</title>
-    <link rel="stylesheet" href="/styles.css" />
-    <script src="/script.js" defer></script>
+    <title>Please! — 가족·친구와 나누는 한 줄 부탁</title>
+    <link rel="stylesheet" href="/assets/fonts/pretendard.css" />
+    <link rel="stylesheet" href="/styles.css?v=20261114-15" />
+    <script src="/script.js?v=20261114-15" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">본문으로 건너뛰기</a>
     <header class="site-header" data-header>
       <a class="brand" href="/" aria-label="Please! 홈">
-        <img src="/assets/brand/please-logo.png" alt="Please!" />
+        <img src="/assets/brand/please-logo.png" alt="Please!" width="315" height="84" />
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle>
         <span></span><span></span><span></span><span class="sr-only">메뉴 열기</span>
       </button>
       <nav class="primary-nav" id="primary-nav" aria-label="주요 메뉴" data-nav>
-        <a href="#features">앱 소개</a>
-        <a href="#guide">주요 기능</a>
+        <a href="/" aria-current="page">앱 소개</a>
         <a href="/support/">고객지원</a>
-        <a class="nav-cta" href="#download">앱 다운로드</a>
+        <a class="btn btn--sm nav-cta" href="#download">앱 다운로드</a>
       </nav>
     </header>
 
     <main id="main">
       <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-blob hero-blob-one"></div>
-        <div class="hero-blob hero-blob-two"></div>
-        <div class="hero-copy reveal">
-          <p class="eyebrow">우리 가족 한 줄 부탁</p>
+        <div class="hero-copy hero-enter">
           <h1 id="hero-title">작은 부탁이<br /><em>잊히지 않도록.</em></h1>
-          <p class="hero-description">같이 사는 가족이 한 줄 부탁을 주고받고,<br class="desktop-break" /> 완료한 부탁은 사람별 색 캔디가 되어 가족 공용 병에 쌓여요.</p>
+          <p class="hero-description">함께 지내는 가족이나 친구와 한&nbsp;줄 부탁을&nbsp;주고받고,<br />서로의 하루를 가볍게 챙겨주는 할&nbsp;일&nbsp;앱이에요.</p>
           <div class="store-buttons" id="hero-download" aria-label="앱 다운로드">
-            <a class="store-button" href="https://apps.apple.com/kr/app/id6806937598" target="_blank" rel="noopener">
+            <a class="btn btn--ink store-button" data-store="ios" href="https://apps.apple.com/kr/app/id6806937598" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.1 12.5c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.2-2-3.9-2-1.7-.2-3.3 1-4.1 1-.9 0-2.2-1-3.6-.9-1.8 0-3.5 1.1-4.5 2.7-1.9 3.3-.5 8.2 1.4 10.9.9 1.3 2 2.8 3.5 2.7 1.4-.1 1.9-.9 3.6-.9 1.7 0 2.2.9 3.7.9 1.5 0 2.5-1.4 3.4-2.7 1.1-1.5 1.5-3 1.5-3.1-.1 0-3.2-1.2-3.2-4.7zM14.3 4.8c.8-.9 1.3-2.2 1.2-3.4-1.1 0-2.4.7-3.2 1.6-.7.8-1.3 2.1-1.2 3.3 1.2.1 2.4-.6 3.2-1.5z"/></svg>
-              <span><small>Download on the</small>App Store</span>
+              <span><small>Download on</small>App Store</span>
             </a>
-            <a class="store-button" href="https://play.google.com/store/apps/details?id=kr.please.app" target="_blank" rel="noopener">
+            <a class="btn btn--ink store-button" data-store="android" href="https://play.google.com/store/apps/details?id=kr.please.app" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 2.2c-.4.4-.6 1-.6 1.8v16c0 .8.2 1.4.6 1.8l.1.1 9-9v-.2l-9-9-.1.1z" fill="#34a853"/><path d="m15.7 15.9-3-3v-.2l3-3 .1.1 3.6 2c1 .6 1 1.5 0 2.1l-3.6 2-.1.1z" fill="#fbbc04"/><path d="m15.8 15.8-3.1-3.1-9.1 9.1c.5.5 1.3.5 2.1.1l10.1-6.1z" fill="#ea4335"/><path d="M15.8 9.7 5.7 3.6c-.8-.5-1.6-.4-2.1.1l9.1 9.1 3.1-3.1z" fill="#4285f4"/></svg>
-              <span><small>GET IT ON</small>Google Play</span>
+              <span><small>Download on</small>Google Play</span>
             </a>
           </div>
           <p class="hero-note">무료 · 광고 없음 · 한국어/영어 지원</p>
         </div>
 
-        <div class="hero-visual reveal" aria-label="Please! 앱의 부탁 목록 미리보기">
-          <div class="hero-phone hero-phone-cutout"><img src="/assets/previews/hero-phone.png" alt="Please! 앱의 가족 부탁 목록 화면" /></div>
-          <span class="floating-character character-dog" aria-hidden="true"><img src="/assets/brand/gyuri.webp" alt="" /></span>
-          <span class="floating-character character-one" aria-hidden="true"><img src="/assets/brand/junyoung.webp" alt="" /></span>
-          <span class="floating-heart" aria-hidden="true">♥</span>
+        <div class="hero-visual hero-enter-visual" aria-label="Please! 앱의 부탁 목록 미리보기">
+          <div class="hero-phone hero-phone-cutout">
+            <picture>
+              <source srcset="/assets/previews/hero-phone.webp?v=20261114-14" type="image/webp" />
+              <img src="/assets/previews/hero-phone.png?v=20261114-14" alt="Please! 앱의 가족 부탁 목록 화면" width="880" height="1814" fetchpriority="high" decoding="async" />
+            </picture>
+          </div>
+          <span class="hero-avatar hero-avatar--gyuri" aria-hidden="true">
+            <img src="/assets/brand/gyuri.webp" alt="" width="256" height="256" decoding="async" />
+          </span>
+          <span class="hero-avatar hero-avatar--junyoung" aria-hidden="true">
+            <img src="/assets/brand/junyoung.webp" alt="" width="256" height="256" decoding="async" />
+          </span>
+          <span class="floating-heart" aria-hidden="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 20.5s-7.2-4.4-9.3-8.7C1 8.4 2.7 4.5 6.4 4.1c2.2-.2 4.1.9 5.6 2.8 1.5-1.9 3.4-3 5.6-2.8 3.7.4 5.4 4.3 3.7 7.7-2.1 4.3-9.3 8.7-9.3 8.7z" />
+            </svg>
+          </span>
           <span class="floating-candy candy-one" aria-hidden="true"></span>
           <span class="floating-candy candy-two" aria-hidden="true"></span>
         </div>
       </section>
 
-      <section class="guide section-pad" id="guide" aria-labelledby="guide-title">
-        <div class="section-heading centered reveal">
-          <p class="eyebrow">앱 사용법</p>
-          <h2 id="guide-title">Please!는 이렇게 써요.</h2>
-          <p>실제 앱의 온보딩과 같은 화면과 움직임으로 여섯 가지 기능을 미리 만나보세요.</p>
+      <section class="about-section" id="about" aria-labelledby="about-title">
+        <div class="about-inner">
+          <div class="about-copy reveal">
+            <h2 id="about-title">함께하는 일상을<br />가벼운 한 줄로.</h2>
+            <p>장보기, 분리수거, 강아지&nbsp;밥&nbsp;챙기기처럼 소소하지만 꼭&nbsp;필요한&nbsp;일들.<br />가족이나 친구에게 딱딱한 지시 대신 다정한 한&nbsp;줄로 부탁해&nbsp;보세요.</p>
+            <ul class="about-scenes">
+              <li>할&nbsp;일을 적으면 문장 끝에 “부탁해요”가 자연스럽게&nbsp;붙어요</li>
+              <li>밀린&nbsp;일, 오늘, 나중에로 나뉘어 지금 할&nbsp;일부터 한눈에&nbsp;보여요</li>
+              <li>가족이나 친구 누구든 구분 없이 나란히 부탁하고 함께&nbsp;챙겨요</li>
+            </ul>
+          </div>
+          <div class="about-showcase reveal" data-mission-mount="about" aria-label="Please! 앱 부탁 카드 예시"></div>
         </div>
-        <div class="guide-layout">
-          <div class="guide-stage reveal" aria-live="polite">
-            <div class="screen-frame" data-guide-frame>
-            <article class="onboarding-slide guide-preview active" data-guide-preview="0">
-              <div class="demo-surface demo-board" aria-label="밀린 일, 오늘, 나중에로 정리된 부탁 목록">
-                <div class="demo-board-group"><div class="mini-heading"><strong>밀린 일</strong><span>1</span></div><div class="mission-card"><i class="mission-dot pink"></i><p>우산 현관에 두기<span>부탁해요</span></p><small>지우</small></div></div>
-                <div class="demo-board-group"><div class="mini-heading"><strong>오늘</strong><span>1</span></div><div class="mission-card"><i class="mission-dot mint"></i><p>강아지 밥 챙기기<span>부탁해요</span></p><small>누구나</small></div></div>
-                <div class="demo-board-group"><div class="mini-heading"><strong>나중에</strong><span>1</span></div><div class="mission-card"><i class="mission-dot blue"></i><p>거실 전구 주문하기<span>부탁해요</span></p><small>8월 27일</small></div></div>
-              </div>
-            </article>
-            <article class="onboarding-slide guide-preview" data-guide-preview="1" hidden>
-              <div class="demo-surface demo-composer" aria-label="부탁 내용, 받을 사람, 날짜를 고르는 등록 화면">
-                <div class="composer-card"><h4>부탁하기</h4><div class="composer-input"><span>저녁에 우유 사 오기</span><small>12/40</small></div><div class="composer-line"><b>@</b><div><span class="demo-chip chip-anyone active">누구나</span><span class="demo-chip chip-me">나</span><span class="demo-chip chip-jiwoo">지우</span></div></div><div class="composer-line"><b>▣</b><div><span class="demo-chip chip-today active">오늘</span><span class="demo-chip chip-tomorrow">내일</span><span class="demo-chip">날짜 없음</span></div></div><button type="button" tabindex="-1">Please!</button></div>
-              </div>
-            </article>
-            <article class="onboarding-slide guide-preview" data-guide-preview="2" hidden>
-              <div class="demo-surface demo-detail" aria-label="부탁을 눌러 수정하거나 상세 정보를 확인하는 화면"><div class="detail-content"><h4>오늘</h4><div class="mission-card detail-mission"><i class="mission-dot orange"></i><p>세탁기 돌리기<span>부탁해요</span></p><small>누구나</small></div><span class="tap-cue"></span></div><div class="edit-backdrop"><div class="edit-sheet"><div><strong>부탁 수정</strong><span>×</span></div><p>세탁기 돌리기 <small>8/40</small></p><div class="sheet-options"><b>@</b><span class="active">누구나</span><span>나</span><span>지우</span></div><div class="sheet-options"><b>▣</b><span class="active blue-bg">오늘</span><span>내일</span><span>날짜 없음</span></div><button type="button" tabindex="-1">저장</button></div></div></div>
-            </article>
-            <article class="onboarding-slide guide-preview" data-guide-preview="3" hidden>
-              <div class="demo-surface demo-celebrate" aria-label="부탁을 완료하고 가족의 하트를 받는 화면"><div class="celebrate-group"><strong>내가 끝낸 부탁</strong><div class="mission-card complete-target"><i class="mission-check">✓</i><p>식물 물 주기<span>부탁해요</span></p><small>나</small></div></div><div class="celebrate-group"><strong>가족이 끝낸 부탁</strong><div class="mission-card completed"><i class="mission-check">✓</i><p>장보기 도와주기<span>부탁해요</span></p><small class="heart-count">♥ <i>1</i></small></div></div><div class="confetti" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
-            </article>
-            <article class="onboarding-slide guide-preview" data-guide-preview="4" hidden>
-              <div class="demo-surface demo-candy" aria-label="완료한 부탁이 색 캔디와 가족 레벨로 쌓이는 화면"><div class="guide-app-jar" data-app-jar></div><div class="family-level"><span class="avatar">나</span><div><strong>나</strong><small>최근 2주</small></div><b>LV. 4</b></div></div>
-            </article>
-            <article class="onboarding-slide guide-preview" data-guide-preview="5" hidden>
-              <div class="demo-surface demo-widget" aria-label="홈 화면에서 밀린 일과 오늘 할 일을 보여 주는 Please! 위젯"><div class="home-icons" aria-hidden="true"><i></i><i></i><i></i><i></i></div><div class="widget-card-live"><div><strong>밀린 일</strong><small>8월 23일</small><p><i class="pink"></i>우산 챙기기</p><p><i class="mint"></i>분리수거 하기</p></div><div><strong>오늘</strong><small>8월 24일</small><p><i></i>빨래 개기</p><p><i class="blue"></i>강아지 밥 챙기기</p></div><span class="widget-tap"></span></div></div>
-            </article>
+      </section>
+
+      <section class="candy-section" id="features" aria-labelledby="candy-title">
+        <div class="candy-inner">
+          <div class="candy-copy reveal">
+            <h2 id="candy-title">끝낸 부탁은 캔디가 되어<br />하나의 병에 쌓여요.</h2>
+            <p>부탁을 하나 끝낼&nbsp;때마다 내&nbsp;색깔 캔디가 공용&nbsp;병에 쏙&nbsp;담겨요.<br />누가 더 많이 했는지 점수로 따지지&nbsp;않고, 최근&nbsp;2주&nbsp;동안 서로 나눈 손길을 함께 모아&nbsp;봐요.</p>
+            <ul class="feature-notes">
+              <li>순위 경쟁 대신 우리 모두의 캔디를 한&nbsp;병에 함께&nbsp;채워요</li>
+              <li>끝낸 부탁에는 하트를 눌러 고마운 마음을 바로&nbsp;전해요</li>
+            </ul>
+          </div>
+          <div class="candy-visual-app reveal" aria-label="8가지 색 캔디가 담긴 가족 공용 캔디병">
+            <div class="candy-jar-wrap">
+              <span class="jar-sparkle one" aria-hidden="true"></span>
+              <span class="jar-sparkle two" aria-hidden="true"></span>
+              <div class="app-jar-card" data-app-jar></div>
             </div>
-            <div class="guide-progress" aria-hidden="true"><span data-guide-number>01</span><i><b data-guide-bar></b></i><span>06</span></div>
-          </div>
-          <div class="guide-steps" data-guide-steps>
-            <button class="guide-step active" type="button" data-guide-step="0"><span>01</span><div><h3>부탁을 한눈에 나눠 봐요</h3><p>가족의 부탁은 날짜에 맞춰 밀린 일, 오늘, 나중에로 모여요. 지금 필요한 일을 바로 찾을 수 있어요.</p></div></button>
-            <button class="guide-step" type="button" data-guide-step="1"><span>02</span><div><h3>한 줄로 가볍게 부탁해요</h3><p>핵심만 한 줄로 적고, 받을 사람과 날짜를 고르세요. 담당자를 비워 두면 가족 누구나 할 수 있어요.</p></div></button>
-            <button class="guide-step" type="button" data-guide-step="2"><span>03</span><div><h3>부탁을 눌러 자세히 살펴봐요</h3><p>부탁을 누르면 필요한 일을 바로 할 수 있어요. 내가 남긴 부탁은 수정하고, 다른 부탁은 누가 남기고 완료했는지 살펴볼 수 있어요.</p></div></button>
-            <button class="guide-step" type="button" data-guide-step="3"><span>04</span><div><h3>끝낸 일은 함께 축하해요</h3><p>일을 끝낸 사람이 체크하면 그 자리에서 함께 축하해요. 가족이 완료한 부탁에는 하트로 마음을 전할 수 있어요.</p></div></button>
-            <button class="guide-step" type="button" data-guide-step="4"><span>05</span><div><h3>함께한 만큼 캔디가 쌓여요</h3><p>완료한 부탁은 내 색 캔디가 되어 가족의 병에 담겨요. My Family에서 최근 2주 활동과 레벨을 확인해 보세요.</p></div></button>
-            <button class="guide-step" type="button" data-guide-step="5"><span>06</span><div><h3>홈 화면에서도 부탁을 확인해요</h3><p>홈 화면에서 밀린 일과 오늘 할 일을 한눈에 보고, 앱을 열지 않아도 바로 확인할 수 있어요. 위젯을 누르면 Please! 앱으로 곧바로 이동해요.</p></div></button>
           </div>
         </div>
       </section>
 
-      <section class="candy-section section-pad" id="features" aria-labelledby="candy-title">
-        <div class="candy-copy reveal">
-          <p class="eyebrow">우리 가족의 작은 기록</p>
-          <h2 id="candy-title">함께한 만큼만,<br />캔디가 쌓여요.</h2>
-          <p>부탁을 끝내면 그 사람의 <span class="keep-together">색 캔디 하나가</span> 가족 공용 캔디병에 담겨요. <span class="keep-together">개인 병도, 순위도 없어요.</span> 최근 2주만 비추기 때문에 누구나 오늘부터 다시 <span class="keep-together">따뜻해질 수 있습니다.</span></p>
-          <ul class="check-list"><li>누적 점수 대신 최근의 도움을 보여요</li><li>완료한 가족에게 하트로 마음을 전해요</li><li>최근 2주 활동을 가볍게 돌아봐요</li></ul>
+      <section class="guide" id="guide" aria-labelledby="guide-title">
+        <div class="guide-track" data-guide-track>
+          <div class="guide-sticky">
+            <div class="guide-layout">
+              <div class="guide-head">
+                <h2 id="guide-title">Please!는 이렇게 써요.</h2>
+                <p>부탁을 남기고 함께 끝내는 여섯&nbsp;단계를&nbsp;살펴봐요.</p>
+              </div>
+              <div class="guide-stage" aria-live="polite">
+                <div class="screen-frame" data-guide-frame>
+                  <article class="onboarding-slide guide-preview is-active" data-guide-preview="0">
+                    <div class="demo-surface demo-board" data-mission-mount="guide-board" aria-label="밀린 일, 오늘, 나중에로 정리된 부탁 목록"></div>
+                  </article>
+                  <article class="onboarding-slide guide-preview" data-guide-preview="1">
+                    <div class="demo-surface demo-composer" aria-label="부탁 내용, 받을 사람, 날짜를 고르는 등록 화면">
+                      <div class="composer-card">
+                        <div class="sheet-header">
+                          <strong>부탁 남기기</strong>
+                          <span class="sheet-close" aria-hidden="true">×</span>
+                        </div>
+                        <div class="composer-input">
+                          <span>저녁에 우유 사 오기</span>
+                          <small>11/40</small>
+                        </div>
+                        <div class="composer-line">
+                          <b aria-hidden="true">@</b>
+                          <div class="chip-row">
+                            <span class="demo-chip chip-anyone active">누구나</span>
+                            <span class="demo-chip chip-me">나</span>
+                            <span class="demo-chip chip-jiwoo">지우</span>
+                          </div>
+                        </div>
+                        <div class="composer-line">
+                          <b class="calendar-slot" data-calendar-icon aria-hidden="true"></b>
+                          <div class="chip-row">
+                            <span class="demo-chip chip-today active">오늘</span>
+                            <span class="demo-chip chip-tomorrow">내일</span>
+                            <span class="demo-chip">날짜 없음</span>
+                          </div>
+                        </div>
+                        <span class="sheet-submit" aria-hidden="true">Please!</span>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="onboarding-slide guide-preview" data-guide-preview="2">
+                    <div class="demo-surface demo-detail" aria-label="부탁을 눌러 수정 시트를 여는 화면">
+                      <div class="detail-content">
+                        <div data-mission-mount="guide-detail"></div>
+                        <span class="tap-cue" aria-hidden="true"></span>
+                      </div>
+                      <div class="edit-backdrop">
+                        <div class="edit-sheet">
+                          <div class="sheet-header">
+                            <strong>부탁 수정</strong>
+                            <span class="sheet-close" aria-hidden="true">×</span>
+                          </div>
+                          <div class="composer-input">
+                            <span>세탁기 돌리기</span>
+                            <small>7/40</small>
+                          </div>
+                          <div class="composer-line">
+                            <b aria-hidden="true">@</b>
+                            <div class="chip-row">
+                              <span class="demo-chip chip-anyone-edit active">누구나</span>
+                              <span class="demo-chip">나</span>
+                              <span class="demo-chip">지우</span>
+                            </div>
+                          </div>
+                          <div class="composer-line">
+                            <b class="calendar-slot" data-calendar-icon aria-hidden="true"></b>
+                            <div class="chip-row">
+                              <span class="demo-chip chip-secondary-active">오늘</span>
+                              <span class="demo-chip">내일</span>
+                              <span class="demo-chip">날짜 없음</span>
+                              <span class="demo-chip">직접 선택</span>
+                            </div>
+                          </div>
+                          <span class="sheet-submit" aria-hidden="true">저장</span>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="onboarding-slide guide-preview" data-guide-preview="3">
+                    <div class="demo-surface demo-celebrate" data-mission-mount="guide-celebrate" aria-label="부탁을 완료하고 가족의 하트를 받는 화면"></div>
+                  </article>
+                  <article class="onboarding-slide guide-preview" data-guide-preview="4">
+                    <div class="demo-surface demo-candy" aria-label="완료한 부탁이 색 캔디와 가족 레벨로 쌓이는 화면">
+                      <div class="guide-app-jar" data-app-jar></div>
+                      <div class="guide-level-mount" data-level-mount="guide"></div>
+                    </div>
+                  </article>
+                  <article class="onboarding-slide guide-preview" data-guide-preview="5">
+                    <div class="demo-surface demo-widget" aria-label="홈 화면에서 밀린 일과 오늘 할 일을 보여 주는 Please! 위젯">
+                      <div class="home-icons" aria-hidden="true">
+                        <i class="home-icon--secondary"></i>
+                        <i class="home-icon--primary"></i>
+                        <i class="home-icon--secondary"></i>
+                        <i class="home-icon--primary"></i>
+                      </div>
+                      <div class="widget-card-live">
+                        <div class="widget-col">
+                          <div class="widget-col-head">
+                            <strong>밀린 일</strong>
+                            <small>저도 신경 써 주세요!</small>
+                          </div>
+                          <p><i class="candy-dot candy-bubblegum"></i><span>우산 챙기기</span></p>
+                          <p><i class="candy-dot candy-mint"></i><span>분리수거 하기</span></p>
+                        </div>
+                        <div class="widget-col">
+                          <div class="widget-col-head">
+                            <strong>오늘</strong>
+                            <small>8월 24일</small>
+                          </div>
+                          <p><i class="candy-dot candy-surface"></i><span>빨래 개기</span></p>
+                          <p><i class="candy-dot candy-blueberry"></i><span>강아지 밥 챙기기</span></p>
+                        </div>
+                        <span class="widget-tap" aria-hidden="true"></span>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </div>
+
+              <div class="guide-dial" data-guide-dial>
+                <div class="guide-dial-focus" aria-hidden="true"></div>
+                <div class="guide-steps" data-guide-steps>
+                  <button class="guide-step active" type="button" data-guide-step="0" aria-pressed="true"><span>01</span><div><h3>부탁을 한눈에 나눠 봐요</h3><p>부탁은 날짜에 맞춰 밀린&nbsp;일, 오늘, 나중에로&nbsp;모여요.<br />지금 필요한&nbsp;일을 바로 찾을&nbsp;수&nbsp;있어요.</p></div></button>
+                  <button class="guide-step" type="button" data-guide-step="1" aria-pressed="false"><span>02</span><div><h3>한 줄로 가볍게 부탁해요</h3><p>핵심만 한&nbsp;줄로 적고, 받을&nbsp;사람과 날짜를&nbsp;고르세요.<br />담당자를 비워&nbsp;두면 누구나 할&nbsp;수&nbsp;있어요.</p></div></button>
+                  <button class="guide-step" type="button" data-guide-step="2" aria-pressed="false"><span>03</span><div><h3>부탁을 눌러 자세히 살펴봐요</h3><p>부탁을 누르면 필요한&nbsp;일을 바로 할&nbsp;수&nbsp;있어요. 내가 남긴 부탁은&nbsp;수정하고, 다른 부탁은 누가 남기고 완료했는지 살펴볼&nbsp;수&nbsp;있어요.</p></div></button>
+                  <button class="guide-step" type="button" data-guide-step="3" aria-pressed="false"><span>04</span><div><h3>끝낸 일은 함께 축하해요</h3><p>일을 끝낸 사람이 체크하면 그&nbsp;자리에서 함께&nbsp;축하해요.<br />다른 사람이 완료한 부탁에는 하트로 마음을 전할&nbsp;수&nbsp;있어요.</p></div></button>
+                  <button class="guide-step" type="button" data-guide-step="4" aria-pressed="false"><span>05</span><div><h3>함께한 만큼 캔디가 쌓여요</h3><p>완료한 부탁은 내&nbsp;색 캔디가 되어 함께 쓰는 병에&nbsp;담겨요.<br />My&nbsp;Family에서 최근&nbsp;2주 활동과 레벨을 확인해&nbsp;보세요.</p></div></button>
+                  <button class="guide-step" type="button" data-guide-step="5" aria-pressed="false"><span>06</span><div><h3>홈 화면에서도 부탁을 확인해요</h3><p>홈&nbsp;화면에서 밀린&nbsp;일과 오늘 할&nbsp;일을 한눈에&nbsp;보고, 앱을 열지 않아도 바로 확인할&nbsp;수&nbsp;있어요. 위젯을 누르면 Please!&nbsp;앱으로 곧바로&nbsp;이동해요.</p></div></button>
+                </div>
+              </div>
+
+              <div class="guide-mobile-panel" data-guide-mobile>
+                <div class="guide-mobile-copy">
+                  <span class="guide-mobile-num" data-guide-mobile-num>01</span>
+                  <h3 data-guide-mobile-title>부탁을 한눈에 나눠 봐요</h3>
+                  <p data-guide-mobile-desc>부탁은 날짜에 맞춰 밀린&nbsp;일, 오늘, 나중에로&nbsp;모여요.<br />지금 필요한&nbsp;일을 바로 찾을&nbsp;수&nbsp;있어요.</p>
+                </div>
+                <div class="guide-mobile-controls">
+                  <div class="guide-mobile-dots" role="group" aria-label="사용 단계 선택">
+                    <button class="guide-dot active" type="button" data-guide-dot="0" aria-label="1단계: 부탁을 한눈에 나눠 봐요" aria-pressed="true"></button>
+                    <button class="guide-dot" type="button" data-guide-dot="1" aria-label="2단계: 한 줄로 가볍게 부탁해요" aria-pressed="false"></button>
+                    <button class="guide-dot" type="button" data-guide-dot="2" aria-label="3단계: 부탁을 눌러 자세히 살펴봐요" aria-pressed="false"></button>
+                    <button class="guide-dot" type="button" data-guide-dot="3" aria-label="4단계: 끝낸 일은 함께 축하해요" aria-pressed="false"></button>
+                    <button class="guide-dot" type="button" data-guide-dot="4" aria-label="5단계: 함께한 만큼 캔디가 쌓여요" aria-pressed="false"></button>
+                    <button class="guide-dot" type="button" data-guide-dot="5" aria-label="6단계: 홈 화면에서도 부탁을 확인해요" aria-pressed="false"></button>
+                  </div>
+                  <div class="guide-mobile-actions">
+                    <button class="btn-onboarding btn-onboarding-back" type="button" data-guide-prev disabled>이전</button>
+                    <button class="btn-onboarding btn-onboarding-next" type="button" data-guide-next>다음</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="candy-visual-app reveal" aria-label="여러 색의 캔디가 담긴 가족 공용 캔디병"><div data-app-jar></div><span class="jar-sparkle one">✦</span><span class="jar-sparkle two">✦</span></div>
       </section>
 
-      <section class="principles section-pad" aria-labelledby="principles-title">
-        <div class="section-heading centered reveal"><p class="eyebrow">Please!의 설계 원칙</p><h2 id="principles-title">가족 사이에 필요한 것만.</h2></div>
-        <div class="principle-grid">
-          <article class="principle-card reveal"><span aria-hidden="true">—</span><h3>기능을 최소화해요</h3><p>부탁을 다루는 Mission과 가족을 보는 My Family, 두 화면에 집중합니다.</p></article>
-          <article class="principle-card reveal"><span aria-hidden="true">○</span><h3>경쟁보다 도움을 바라봐요</h3><p>점수나 순위를 매기지 않고, 최근 2주의 캔디로 서로 나눈 도움을 바라봅니다.</p></article>
-          <article class="principle-card reveal"><span aria-hidden="true">=</span><h3>가족을 평등하게 봐요</h3><p>부모와 자녀에게 다른 권한을 주지 않고, 위계를 시스템에 새기지 않습니다.</p></article>
-          <article class="principle-card reveal"><span aria-hidden="true">♡</span><h3>한 줄도 따뜻한 부탁이 돼요</h3><p>할 일을 간단히 적으면 문장 끝에 “부탁해요”가 자연스럽게 붙어요. 가족에게 건네는 다정한 부탁이 됩니다.</p></article>
-        </div>
-        <div class="privacy-promise reveal">
-          <span aria-hidden="true">♡</span>
-          <div><h3>개인정보는 최소한만 받아요.</h3><p>실명·전화번호·생년월일·사진·주소록·위치 정보를 받지 않고 광고나 행동 추적 도구도 쓰지 않습니다. 가족은 초대 링크로만 참여하며, 한 가족은 최대 8명입니다.</p></div>
-          <a href="/privacy/">자세히 보기</a>
+      <section class="privacy-section" aria-labelledby="privacy-title">
+        <div class="privacy-inner">
+          <div class="privacy-head reveal">
+            <h2 id="privacy-title">개인정보는 최소한만 받아요.</h2>
+            <p>초대&nbsp;링크를 받은 가족이나 친구만 들어올&nbsp;수&nbsp;있어요.<br />꼭&nbsp;필요한 정보만 받고, 그&nbsp;외에는 묻지&nbsp;않아요.</p>
+          </div>
+          <div class="privacy-compare">
+            <div class="privacy-card privacy-card--collect reveal">
+              <h3>Please!가 받는 정보</h3>
+              <ul>
+                <li>소셜 로그인 식별자 (Apple · Google)</li>
+                <li>푸시 알림 발송용 기기 토큰</li>
+                <li>앱 내 설정값 (닉네임 · 캐릭터 · 부탁 내용)</li>
+              </ul>
+            </div>
+            <div class="privacy-card privacy-card--skip reveal">
+              <h3>Please!가 받지 <em>않는</em> 정보</h3>
+              <ul>
+                <li>실명 · 본명</li>
+                <li>전화번호 · 연락처</li>
+                <li>생년월일 · 성별</li>
+                <li>집 주소 · 위치 정보</li>
+                <li>광고 식별자 · 행동 추적</li>
+                <li class="privacy-list-more" aria-hidden="true">...</li>
+              </ul>
+            </div>
+          </div>
+          <div class="privacy-actions reveal">
+            <a class="btn btn--ghost" href="/privacy/">개인정보 처리방침 보기</a>
+          </div>
         </div>
       </section>
 
-      <section class="download-band section-pad" id="download" aria-labelledby="download-title">
-        <div class="download-copy reveal"><img src="/assets/brand/app-icon.png" alt="Please! 앱 아이콘" /><div><p class="eyebrow">오늘부터 가볍게</p><h2 id="download-title">가족에게 한 줄로<br />부탁해 보세요.</h2></div></div>
-        <div class="store-buttons reveal">
-          <a class="store-button" href="https://apps.apple.com/kr/app/id6806937598" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.1 12.5c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.2-2-3.9-2-1.7-.2-3.3 1-4.1 1-.9 0-2.2-1-3.6-.9-1.8 0-3.5 1.1-4.5 2.7-1.9 3.3-.5 8.2 1.4 10.9.9 1.3 2 2.8 3.5 2.7 1.4-.1 1.9-.9 3.6-.9 1.7 0 2.2.9 3.7.9 1.5 0 2.5-1.4 3.4-2.7 1.1-1.5 1.5-3 1.5-3.1-.1 0-3.2-1.2-3.2-4.7zM14.3 4.8c.8-.9 1.3-2.2 1.2-3.4-1.1 0-2.4.7-3.2 1.6-.7.8-1.3 2.1-1.2 3.3 1.2.1 2.4-.6 3.2-1.5z"/></svg><span><small>Download on the</small>App Store</span></a>
-          <a class="store-button" href="https://play.google.com/store/apps/details?id=kr.please.app" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 2.2c-.4.4-.6 1-.6 1.8v16c0 .8.2 1.4.6 1.8l.1.1 9-9v-.2l-9-9-.1.1z" fill="#34a853"/><path d="m15.7 15.9-3-3v-.2l3-3 .1.1 3.6 2c1 .6 1 1.5 0 2.1l-3.6 2-.1.1z" fill="#fbbc04"/><path d="m15.8 15.8-3.1-3.1-9.1 9.1c.5.5 1.3.5 2.1.1l10.1-6.1z" fill="#ea4335"/><path d="M15.8 9.7 5.7 3.6c-.8-.5-1.6-.4-2.1.1l9.1 9.1 3.1-3.1z" fill="#4285f4"/></svg><span><small>GET IT ON</small>Google Play</span></a>
+      <section class="download-band" id="download" aria-labelledby="download-title">
+        <img class="download-watermark" src="/assets/brand/app-icon.png" alt="" aria-hidden="true" width="256" height="256" loading="lazy" />
+        <div class="download-candies" aria-hidden="true">
+          <span class="scatter-candy scatter-1" style="--candy: var(--candy-blueberry)"></span>
+          <span class="scatter-candy scatter-2" style="--candy: var(--candy-bubblegum)"></span>
+          <span class="scatter-candy scatter-3" style="--candy: var(--candy-mint)"></span>
+          <span class="scatter-candy scatter-4" style="--candy: var(--candy-marigold)"></span>
+          <span class="scatter-candy scatter-5" style="--candy: var(--candy-grape)"></span>
+          <span class="scatter-candy scatter-6" style="--candy: var(--candy-sky)"></span>
+          <span class="scatter-candy scatter-7" style="--candy: var(--candy-fern)"></span>
+          <span class="scatter-candy scatter-8" style="--candy: var(--candy-cinnamon)"></span>
+        </div>
+        <div class="download-inner">
+          <div class="download-copy">
+            <h2 id="download-title">가족과 친구에게 한 줄로<br />부탁해 보세요.</h2>
+          </div>
+          <div class="store-buttons">
+            <a class="btn btn--ink store-button" data-store="ios" href="https://apps.apple.com/kr/app/id6806937598" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.1 12.5c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.2-2-3.9-2-1.7-.2-3.3 1-4.1 1-.9 0-2.2-1-3.6-.9-1.8 0-3.5 1.1-4.5 2.7-1.9 3.3-.5 8.2 1.4 10.9.9 1.3 2 2.8 3.5 2.7 1.4-.1 1.9-.9 3.6-.9 1.7 0 2.2.9 3.7.9 1.5 0 2.5-1.4 3.4-2.7 1.1-1.5 1.5-3 1.5-3.1-.1 0-3.2-1.2-3.2-4.7zM14.3 4.8c.8-.9 1.3-2.2 1.2-3.4-1.1 0-2.4.7-3.2 1.6-.7.8-1.3 2.1-1.2 3.3 1.2.1 2.4-.6 3.2-1.5z"/></svg><span><small>Download on</small>App Store</span></a>
+            <a class="btn btn--ink store-button" data-store="android" href="https://play.google.com/store/apps/details?id=kr.please.app" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 2.2c-.4.4-.6 1-.6 1.8v16c0 .8.2 1.4.6 1.8l.1.1 9-9v-.2l-9-9-.1.1z" fill="#34a853"/><path d="m15.7 15.9-3-3v-.2l3-3 .1.1 3.6 2c1 .6 1 1.5 0 2.1l-3.6 2-.1.1z" fill="#fbbc04"/><path d="m15.8 15.8-3.1-3.1-9.1 9.1c.5.5 1.3.5 2.1.1l10.1-6.1z" fill="#ea4335"/><path d="M15.8 9.7 5.7 3.6c-.8-.5-1.6-.4-2.1.1l9.1 9.1 3.1-3.1z" fill="#4285f4"/></svg><span><small>Download on</small>Google Play</span></a>
+          </div>
         </div>
       </section>
     </main>
 
     <template id="app-jar-template">
-      <div class="app-jar-stage" aria-hidden="true">
-        <div class="app-jar-shadow"></div><div class="app-jar-base"><i></i></div>
-        <svg class="app-jar-back" viewBox="0 0 288 225"><defs><linearGradient id="jar-back" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".86"/><stop offset=".55" stop-color="#f2f7fc" stop-opacity=".4"/><stop offset="1" stop-color="#dbe5f0" stop-opacity=".44"/></linearGradient></defs><path d="M54 18C34 30 20 49 14 76 9 105 10 174 22 195 34 216 56 222 84 223h120c28-1 50-7 62-28 12-21 13-90 8-119-6-27-20-46-40-58V9H54Z" fill="url(#jar-back)"/></svg>
-        <div class="app-candy-well"><i class="app-candy blueberry"></i><i class="app-candy bubblegum"></i><i class="app-candy mint"></i><i class="app-candy marigold"></i><i class="app-candy blueberry mark">✦</i><i class="app-candy bubblegum"></i><i class="app-candy mint mark">✦</i><i class="app-candy blueberry"></i><i class="app-candy marigold"></i><i class="app-candy bubblegum mark">✦</i></div>
-        <svg class="app-jar-front" viewBox="0 0 288 225"><defs><linearGradient id="glass-edge" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#a8b8cb" stop-opacity=".22"/><stop offset=".1" stop-color="#cfdcea" stop-opacity=".07"/><stop offset=".34" stop-color="#fff" stop-opacity=".04"/><stop offset=".72" stop-color="#fff" stop-opacity=".04"/><stop offset=".92" stop-color="#c2d0e0" stop-opacity=".08"/><stop offset="1" stop-color="#9fb0c4" stop-opacity=".24"/></linearGradient><linearGradient id="glass-floor" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#94a8c0" stop-opacity="0"/><stop offset="1" stop-color="#8ea2b8" stop-opacity=".18"/></linearGradient></defs><path d="M54 18C34 30 20 49 14 76 9 105 10 174 22 195 34 216 56 222 84 223h120c28-1 50-7 62-28 12-21 13-90 8-119-6-27-20-46-40-58V9H54Z" fill="url(#glass-edge)" stroke="#b8c5d3" stroke-width="1.5"/><path d="M18 176c4 28 26 45 66 47h120c40-2 62-19 66-47Z" fill="url(#glass-floor)"/><path d="M58 25C40 37 28 54 22 79c-5 29-4 92 7 111 11 18 31 25 57 26h116c26-1 46-8 57-26 11-19 12-82 7-111-6-25-18-42-36-54" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.2"/><path d="M42 78c-8 22-9 72-2 94" fill="none" stroke="rgba(255,255,255,.24)" stroke-linecap="round" stroke-width="12"/><path d="M42 82c-7 20-8 66-1 84" fill="none" stroke="rgba(255,255,255,.32)" stroke-linecap="round" stroke-width="4"/><path d="M248 96c4 16 4 40 1 54" fill="none" stroke="rgba(255,255,255,.18)" stroke-linecap="round" stroke-width="6"/><path d="M66 45c12-13 28-18 46-20" fill="none" stroke="rgba(255,255,255,.32)" stroke-linecap="round" stroke-width="3.5"/></svg>
-        <svg class="app-jar-mouth" viewBox="0 0 288 58"><defs><linearGradient id="rim-fill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".98"/><stop offset=".58" stop-color="#e4ebf4" stop-opacity=".72"/><stop offset="1" stop-color="#d3dde8" stop-opacity=".72"/></linearGradient></defs><path d="M45 18c0 12 22 21 99 21s99-9 99-21v18c0 13-25 20-99 20S45 49 45 36Z" fill="url(#rim-fill)" stroke="#b8c5d3" stroke-width="1.2"/><ellipse cx="144" cy="18" rx="99" ry="17" fill="url(#rim-fill)" stroke="#adbbcb" stroke-width="1.4"/><ellipse cx="144" cy="18" rx="84" ry="10.5" fill="rgba(244,249,255,.78)" stroke="#c3ced9" stroke-width="1.1"/><path d="M73 12C96 5 157 4 191 8" fill="none" stroke="rgba(255,255,255,.8)" stroke-linecap="round" stroke-width="4"/></svg>
+      <div class="app-jar-wrapper">
+        <div class="app-jar-stage" aria-hidden="true">
+          <div class="app-jar-shadow"></div>
+          <div class="app-jar-base"><i></i></div>
+          <svg class="app-jar-back" viewBox="0 0 288 225"><defs><linearGradient id="jar-back" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".86"/><stop offset=".55" stop-color="#f2f7fc" stop-opacity=".4"/><stop offset="1" stop-color="#dbe5f0" stop-opacity=".44"/></linearGradient></defs><path d="M54 18C34 30 20 49 14 76 9 105 10 174 22 195 34 216 56 222 84 223h120c28-1 50-7 62-28 12-21 13-90 8-119-6-27-20-46-40-58V9H54Z" fill="url(#jar-back)"/></svg>
+          <div class="app-candy-well" data-candy-well></div>
+          <svg class="app-jar-front" viewBox="0 0 288 225"><defs><linearGradient id="glass-edge" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#a8b8cb" stop-opacity=".22"/><stop offset=".1" stop-color="#cfdcea" stop-opacity=".07"/><stop offset=".34" stop-color="#fff" stop-opacity=".04"/><stop offset=".72" stop-color="#fff" stop-opacity=".04"/><stop offset=".92" stop-color="#c2d0e0" stop-opacity=".08"/><stop offset="1" stop-color="#9fb0c4" stop-opacity=".24"/></linearGradient><linearGradient id="glass-floor" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#94a8c0" stop-opacity="0"/><stop offset="1" stop-color="#8ea2b8" stop-opacity=".18"/></linearGradient></defs><path d="M54 18C34 30 20 49 14 76 9 105 10 174 22 195 34 216 56 222 84 223h120c28-1 50-7 62-28 12-21 13-90 8-119-6-27-20-46-40-58V9H54Z" fill="url(#glass-edge)" stroke="#b8c5d3" stroke-width="1.5"/><path d="M18 176c4 28 26 45 66 47h120c40-2 62-19 66-47Z" fill="url(#glass-floor)"/><path d="M58 25C40 37 28 54 22 79c-5 29-4 92 7 111 11 18 31 25 57 26h116c26-1 46-8 57-26 11-19 12-82 7-111-6-25-18-42-36-54" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.2"/><path d="M42 78c-8 22-9 72-2 94" fill="none" stroke="rgba(255,255,255,.24)" stroke-linecap="round" stroke-width="12"/><path d="M42 82c-7 20-8 66-1 84" fill="none" stroke="rgba(255,255,255,.32)" stroke-linecap="round" stroke-width="4"/><path d="M248 96c4 16 4 40 1 54" fill="none" stroke="rgba(255,255,255,.18)" stroke-linecap="round" stroke-width="6"/><path d="M66 45c12-13 28-18 46-20" fill="none" stroke="rgba(255,255,255,.32)" stroke-linecap="round" stroke-width="3.5"/></svg>
+          <svg class="app-jar-mouth" viewBox="0 0 288 58"><defs><linearGradient id="rim-fill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".98"/><stop offset=".58" stop-color="#e4ebf4" stop-opacity=".72"/><stop offset="1" stop-color="#d3dde8" stop-opacity=".72"/></linearGradient></defs><path d="M45 18c0 12 22 21 99 21s99-9 99-21v18c0 13-25 20-99 20S45 49 45 36Z" fill="url(#rim-fill)" stroke="#b8c5d3" stroke-width="1.2"/><ellipse cx="144" cy="18" rx="99" ry="17" fill="url(#rim-fill)" stroke="#adbbcb" stroke-width="1.4"/><ellipse cx="144" cy="18" rx="84" ry="10.5" fill="rgba(244,249,255,.78)" stroke="#c3ced9" stroke-width="1.1"/><path d="M73 12C96 5 157 4 191 8" fill="none" stroke="rgba(255,255,255,.8)" stroke-linecap="round" stroke-width="4"/></svg>
+        </div>
+        <p class="app-jar-count" data-jar-count>우리가 함께 모은 캔디 <strong class="app-jar-count-num">8</strong>개</p>
       </div>
     </template>
 
     <footer class="site-footer">
-      <div class="footer-brand"><img src="/assets/brand/please-logo.png" alt="Please!" /><p>가족의 작은 부탁이 잊히지 않도록.</p></div>
+      <div class="footer-brand"><img src="/assets/brand/please-logo.png" alt="Please!" width="315" height="84" /><p>가족과 친구의 작은 부탁이 잊히지 않도록.</p></div>
       <div class="footer-links">
-        <div><strong>서비스</strong><a href="#guide">앱 사용법</a><a href="/support/">고객지원</a></div>
-        <div><strong>정책</strong><a href="/terms/">서비스 이용약관</a><a href="/privacy/">개인정보 처리방침</a></div>
-        <div>
-          <strong>운영</strong>
-          <a href="https://yellodevs.space" target="_blank" rel="noopener">yellodevs</a>
-          <div class="social-links" aria-label="Please! 소셜 미디어">
-            <a class="social-link" href="https://www.instagram.com/please.app.official/" target="_blank" rel="noopener" aria-label="Please! Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle class="fill-dot" cx="17.4" cy="6.7" r="1.1"/></svg></a>
-            <a class="social-link" href="https://www.facebook.com/pleaseapp" target="_blank" rel="noopener" aria-label="Please! Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="fill-icon" d="M13.8 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.5 1.6-1.5H17V3.9c-.7-.1-1.5-.2-2.3-.2-2.3 0-3.9 1.4-3.9 4V10H8.2v3h2.6v8h3Z"/></svg></a>
-            <a class="social-link" href="https://x.com/WeArePlease" target="_blank" rel="noopener" aria-label="Please! X"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="fill-icon" d="M18.9 2H22l-6.8 7.8L23.2 22H17l-4.8-6.3L6.7 22H3.5l7.2-8.3L3 2h6.3l4.4 5.8L18.9 2Zm-1.1 17.8h1.7L8.4 4.1H6.6l11.2 15.7Z"/></svg></a>
-            <a class="social-link" href="https://www.linkedin.com/company/please-app/" target="_blank" rel="noopener" aria-label="Please! LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="fill-icon" d="M6.5 8.2H3.3V21h3.2V8.2ZM4.9 3A1.9 1.9 0 1 0 5 6.8 1.9 1.9 0 0 0 4.9 3ZM21 13.7c0-3.9-2.1-5.8-4.9-5.8-2.3 0-3.3 1.3-3.8 2.1V8.2H9.1V21h3.2v-6.3c0-1.7.3-3.3 2.4-3.3 2 0 2.1 1.9 2.1 3.4V21H20l1-7.3Z"/></svg></a>
-          </div>
-        </div>
+        <div><strong>서비스</strong><a href="/">앱 소개</a><a href="/support/">고객지원</a></div>
+        <div><strong>정책 문서</strong><a href="/terms/">서비스 이용약관</a><a href="/privacy/">개인정보 처리방침</a></div>
+        <div><strong>운영 주체</strong><a href="https://yellodevs.space" target="_blank" rel="noopener">yellodevs</a><a href="mailto:yellodevs@gmail.com">yellodevs@gmail.com</a></div>
       </div>
       <p class="copyright">© 2026 yellodevs. All rights reserved.</p>
     </footer>

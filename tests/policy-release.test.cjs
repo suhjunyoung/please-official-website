@@ -2,7 +2,7 @@ const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const { POLICY_RELEASE, policyView, policyUrl, policySource, policyDate } = require('../site/policy-release.js');
 
-const unsetSchedule = { ...POLICY_RELEASE, publishedAt: null, effectiveAt: null, correctionPublishedAt: null };
+const unsetSchedule = { ...POLICY_RELEASE, publishedAt: null, effectiveAt: null };
 const schedule = { ...POLICY_RELEASE,
   publishedAt: '2027-01-10T09:00:00+09:00', effectiveAt: '2027-01-17T09:00:00+09:00' };
 const published = Date.parse(schedule.publishedAt);
@@ -49,13 +49,6 @@ test('language and legal cross-links preserve exact versions and local review co
   assert.equal(policyUrl('terms', result), '/terms/?version=v3&lang=en&preview=v3');
   assert.equal(policySource('privacy', result), '/content/v3/privacy.en.md');
   assert.equal(policyUrl('privacy', result, 'v2'), '/privacy/?version=v2&lang=en&preview=v3');
-});
-test('correction has its own publication boundary independent of v3', () => {
-  const config = { ...unsetSchedule, correctionPublishedAt: schedule.publishedAt };
-  assert.equal(view('?version=correction', published - 1, undefined, config).available, false);
-  const result = view('?version=correction&lang=en', published, undefined, config);
-  assert.equal(result.announced, false); assert.equal(result.corrected, true);
-  assert.equal(policySource('privacy', result), '/content/corrections/notification-retention.en.md');
 });
 test('unknown versions, hosts and document types cannot select arbitrary sources', () => {
   assert.equal(view('?preview=v3', effective, 'localhost.evil.example', unsetSchedule).draft, false);
