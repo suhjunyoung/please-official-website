@@ -638,6 +638,12 @@ img { display: block; max-width: 100%; }
   line-height: 1.15;
   margin: 0;
 }
+.guide-head p {
+  color: var(--ink-soft);
+  font-size: var(--t-lead);
+  line-height: 1.65;
+  margin: 12px 0 0;
+}
 .screen-frame {
   background: linear-gradient(145deg, #ffefe0, #fffaf3);
   border: 1px solid rgba(210, 131, 49, 0.22);
@@ -1725,6 +1731,7 @@ i.orange {
   .section-heading > p:last-child,
   .about-copy > p,
   .candy-copy > p,
+  .guide-head p,
   .guide-step p,
   .privacy-head p,
   .page-hero > p:last-child,
