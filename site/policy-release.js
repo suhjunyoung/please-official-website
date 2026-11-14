@@ -5,7 +5,6 @@ const POLICY_RELEASE = Object.freeze({
   effectiveDate: '2026-11-19',
   publishedAt: '2026-11-12T23:30:00+09:00',
   effectiveAt: '2026-11-19T23:30:00+09:00',
-  correctionPublishedAt: '2026-11-12T23:30:00+09:00',
 });
 
 function policyView(search, hostname, now = Date.now(), schedule = POLICY_RELEASE) {
@@ -21,14 +20,11 @@ function policyView(search, hostname, now = Date.now(), schedule = POLICY_RELEAS
     && effective - published >= 7 * 24 * 60 * 60 * 1000;
   const announced = validSchedule && now >= published;
   const active = announced && now >= effective;
-  const corrected = Number.isFinite(parsed(schedule.correctionPublishedAt))
-    && now >= parsed(schedule.correctionPublishedAt);
-  const review = ['v3', 'announcement', 'correction'].includes(preview);
+  const review = ['v3', 'announcement'].includes(preview);
   const version = params.get('version') || (review ? preview : active ? 'v3' : 'v2');
   const draft = review && version !== 'v2';
-  const available = version === 'v2' || (draft || announced) && ['v3', 'announcement'].includes(version)
-    || (draft || corrected) && version === 'correction';
-  return { language, version, available, draft, announced, active, corrected,
+  const available = version === 'v2' || (draft || announced) && ['v3', 'announcement'].includes(version);
+  return { language, version, available, draft, announced, active,
     showV3: announced || review, review, preview: review ? preview : null };
 }
 
@@ -45,7 +41,6 @@ function policySource(kind, view) {
   if (view.version === 'v2') return `/content/${kind}.${suffix}`;
   if (view.version === 'v3') return `/content/v3/${kind}.${suffix}`;
   if (view.version === 'announcement') return `/content/v3/announcement.${suffix}`;
-  if (view.version === 'correction') return `/content/corrections/notification-retention.${suffix}`;
   return null;
 }
 

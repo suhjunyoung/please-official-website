@@ -156,12 +156,10 @@ function showPolicyState(view) {
     activeCurrent: 'This is the currently effective version.',
     previous: 'This is a previous version. Please check the current version for the terms currently in effect.',
     missing: 'This document has not been published. Please check the current version.',
-    correction: 'Correction to current processing information, separate from the upcoming update schedule.',
     announcementBanner: view.active
       ? 'This is the policy update notice.'
       : 'This is a summary of the upcoming update. The current version remains in effect until the effective date.',
     announcement: 'Terms and privacy update notice',
-    correctionLink: 'Notification record retention correction',
     viewUpcoming: 'View upcoming version →',
     viewCurrent: 'View current version →',
     viewPrevious: 'View previous version →',
@@ -175,12 +173,10 @@ function showPolicyState(view) {
     activeCurrent: '현재 적용 중인 현행본입니다.',
     previous: '이전에 적용되던 문서입니다. 현재 적용 중인 내용은 현행본에서 확인해 주세요.',
     missing: '아직 공개되지 않은 문서입니다. 현행본을 확인해 주세요.',
-    correction: '현재 운영 중인 처리 기준에 대한 정정 안내이며, 예정 개정본 시행 일정과는 별개입니다.',
     announcementBanner: view.active
       ? '약관·개인정보 처리방침 개정 안내입니다.'
       : '시행 예정인 개정 내용 안내입니다. 시행일 전까지는 현행본이 적용됩니다.',
     announcement: '약관·개인정보 처리방침 개정 안내',
-    correctionLink: '알림 처리 기록 보관 안내 정정',
     viewUpcoming: '예정 개정본 보기 →',
     viewCurrent: '현행본 보기 →',
     viewPrevious: '이전 버전 보기 →',
@@ -197,7 +193,6 @@ function showPolicyState(view) {
   const currentEffectiveVersion = view.active ? 'v3' : 'v2';
   const message = !view.available ? labels.missing
     : view.draft ? labels.draft
-    : view.version === 'correction' ? labels.correction
     : view.version === 'announcement' ? labels.announcementBanner
     : view.version === 'v3' && !view.active ? labels.upcoming
     : view.version === 'v3' && view.active ? labels.activeCurrent
@@ -208,57 +203,51 @@ function showPolicyState(view) {
     : view.version === 'v2' && view.active ? ['v3', labels.viewCurrent]
     : view.version === 'v3' && !view.active ? ['v2', labels.viewCurrent]
     : view.version === 'v3' && view.active ? ['v2', labels.viewPrevious]
-    : ['announcement', 'correction'].includes(view.version) ? [currentEffectiveVersion, labels.viewCurrent]
+    : view.version === 'announcement' ? [currentEffectiveVersion, labels.viewCurrent]
     : null;
   policyStatus.replaceChildren();
-  const showCorrectionLink = view.corrected && documentType === 'privacy' && view.version !== 'correction';
-  policyStatus.hidden = !message && !switchTarget && !showCorrectionLink;
+  policyStatus.hidden = !message && !switchTarget;
   if (message) {
     const text = document.createElement('p');
     text.textContent = message;
     policyStatus.append(text);
   }
-  if (switchTarget || showCorrectionLink) {
+  if (switchTarget) {
     const actions = document.createElement('div');
     actions.className = 'policy-status-links';
-    if (showCorrectionLink) {
-      const corrLink = document.createElement('a');
-      corrLink.className = 'policy-status-secondary';
-      corrLink.href = policyUrl(documentType, view, 'correction');
-      corrLink.textContent = labels.correctionLink;
-      actions.append(corrLink);
-    }
-    if (switchTarget) {
-      const [targetVersion, targetLabel] = switchTarget;
-      const switchLink = document.createElement('a');
-      switchLink.href = policyUrl(documentType, view, targetVersion);
-      switchLink.textContent = targetLabel;
-      actions.append(switchLink);
-    }
+    const [targetVersion, targetLabel] = switchTarget;
+    const switchLink = document.createElement('a');
+    switchLink.href = policyUrl(documentType, view, targetVersion);
+    switchLink.textContent = targetLabel;
+    actions.append(switchLink);
     policyStatus.append(actions);
   }
   const heading = document.querySelector('.page-hero h1');
-  heading.textContent = view.version === 'correction' ? labels.correctionLink
-    : view.version === 'announcement' ? labels.announcement
+  heading.textContent = view.version === 'announcement' ? labels.announcement
     : documentType === 'terms' ? en ? 'Terms of Service' : '서비스 이용약관'
     : en ? 'Privacy Policy' : '개인정보 처리방침';
   const description = document.querySelector('.page-hero h1 + p');
   const eyebrow = document.querySelector('.page-hero .eyebrow');
-  eyebrow.textContent = view.version === 'correction' ? 'Retention information'
-    : view.version === 'announcement' ? 'Policy update' : documentType === 'terms' ? 'Terms of service' : 'Privacy policy';
-  description.textContent = view.version === 'correction'
-    ? en ? 'A clarification of notification record retention currently in operation.' : '현재 운영 중인 알림 처리 기록의 보관 기준을 정확하게 안내합니다.'
-    : view.version === 'announcement'
-    ? en ? 'Review the changes for multiple families, profiles and reminders.' : '여러 가족 참여와 프로필·알림에 관한 개정 내용을 안내합니다.'
+  eyebrow.textContent = view.version === 'announcement' ? 'Policy update' : documentType === 'terms' ? 'Terms of service' : 'Privacy policy';
+  description.textContent = view.version === 'announcement'
+    ? en ? 'Review the changes for multiple families, profiles and reminders.' : '여러 모임 참여와 프로필·알림에 관한 개정 내용을 안내해요.'
     : documentType === 'terms'
-    ? en ? 'Conditions for using Please! and the rights and responsibilities of users and operators.' : 'Please! 서비스를 이용하기 위한 조건과 운영자·이용자의 권리 및 의무를 안내합니다.'
-    : en ? 'How Please! collects, uses, retains and deletes personal information.' : 'Please!가 어떤 정보를 수집하고, 어떻게 이용·보관하며, 언제 파기하는지 안내합니다.';
+    ? en ? 'Conditions for using Please! and the rights and responsibilities of users and operators.' : 'Please!를 이용하기 위해 알아두면 좋은 조건과 운영자·이용자의 권리 및 의무를 안내해요.'
+    : en ? 'How Please! collects, uses, retains and deletes personal information.' : 'Please!가 어떤 정보를 받고 어떻게 지키며, 언제 파기하는지 알기 쉽게 안내해요.';
 
-  if (legalMeta) legalMeta.textContent = view.version === 'v2'
-    ? `${en ? 'Effective' : '시행일자'}: ${policyDate(POLICY_RELEASE.v2EffectiveAt, view.language)}`
-    : view.version === 'correction'
-    ? `${en ? 'Published' : '게시일자'}: ${policyDate(POLICY_RELEASE.correctionPublishedAt, view.language)}`
-    : `${en ? 'Published' : '공고일자'}: ${policyDate(POLICY_RELEASE.publishedAt || POLICY_RELEASE.publishedDate, view.language)} · ${en ? 'Effective' : '시행일자'}: ${policyDate(POLICY_RELEASE.effectiveAt || POLICY_RELEASE.effectiveDate, view.language)}`;
+  if (legalMeta) {
+    const lines = view.version === 'v2'
+      ? [`${en ? 'Effective' : '시행일자'}: ${policyDate(POLICY_RELEASE.v2EffectiveAt, view.language)}`]
+      : [
+          `${en ? 'Published' : '공고일자'}: ${policyDate(POLICY_RELEASE.publishedAt || POLICY_RELEASE.publishedDate, view.language)}`,
+          `${en ? 'Effective' : '시행일자'}: ${policyDate(POLICY_RELEASE.effectiveAt || POLICY_RELEASE.effectiveDate, view.language)}`,
+        ];
+    legalMeta.replaceChildren(...lines.map((line) => {
+      const row = document.createElement('span');
+      row.textContent = line;
+      return row;
+    }));
+  }
 }
 
 async function loadDocument(language) {
